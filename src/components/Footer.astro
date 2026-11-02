@@ -29,7 +29,7 @@ const legalLinks = [
 ];
 
 /** Discover priority-locale pages (reduces sitemap orphans). */
-const localeDiscoveryLinks = [
+const localeDiscoveryLinksKo = [
   { href: '/ko/about/', label: 'KO — About Modern Warfare Cheats' },
   { href: '/ko/blog/how-to-buy-mw4-cheats-2026/', label: 'KO — How to buy MW4 cheats (2026)' },
   { href: '/ko/blog/how-to-use-mw4-cheat-codes/', label: 'KO — MW4 cheat codes guide' },
@@ -42,6 +42,15 @@ const localeDiscoveryLinks = [
   { href: '/ko/blog/mw4-hwid-spoofer-after-ban/', label: 'KO — HWID spoofer after ban' },
   { href: '/ko/blog/mw4-lite-vs-pro/', label: 'KO — Lite vs Pro comparison' },
   { href: '/ko/blog/mw4-loadout-changer-guide/', label: 'KO — Loadout changer guide' },
+];
+
+const localeDiscoveryLinksDe = [
+  { href: '/de/blog/mw4-aimbot-ranked-guide/', label: 'DE — MW4 aimbot ranked guide' },
+  { href: '/de/blog/mw4-cheats-features-guide/', label: 'DE — MW4 cheats features guide' },
+  { href: '/de/blog/mw4-elite-tier-guide/', label: 'DE — MW4 Elite tier guide' },
+  { href: '/de/blog/mw4-esp-wallhack-setup/', label: 'DE — ESP wallhack setup' },
+  { href: '/de/blog/mw4-external-cheat-guide/', label: 'DE — External cheat guide' },
+  { href: '/de/blog/mw4-hwid-spoofer-after-ban/', label: 'DE — HWID spoofer after ban' },
 ];
 ---
 
@@ -103,7 +112,19 @@ const localeDiscoveryLinks = [
     <nav class="mb-6" aria-label="Korean site guides">
       <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">한국어 (KO) guides</p>
       <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-        {localeDiscoveryLinks.map((link) => (
+        {localeDiscoveryLinksKo.map((link) => (
+          <li>
+            <a href={link.href} class="text-sm text-muted-foreground hover:text-primary">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <nav class="mb-6" aria-label="German site guides">
+      <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Deutsch (DE) guides</p>
+      <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+        {localeDiscoveryLinksDe.map((link) => (
           <li>
             <a href={link.href} class="text-sm text-muted-foreground hover:text-primary">
               {link.label}

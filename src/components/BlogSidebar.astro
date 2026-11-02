@@ -14,10 +14,12 @@ import { Button } from '@/components/starwind/button';
 interface Props {
   post: BlogPostFull;
   related: BlogPostFull[];
+  /** Overrides default “In this article” sidebar heading (SEO). */
+  tocHeadingText?: string;
   class?: string;
 }
 
-const { post, related, class: className } = Astro.props;
+const { post, related, tocHeadingText, class: className } = Astro.props;
 
 const tocCount = post.body.filter((b) => b.type === 'h2').length;
 
@@ -37,11 +39,11 @@ const toc = post.body
   }));
 
 const productLinks: { label: string; href: string; icon: IconName }[] = [
-  { label: t.products.title, href: localizePath(locale, ROUTES.products), icon: 'sidebarHub' },
-  { label: t.cheats.title, href: localizePath(locale, ROUTES.productsElite), icon: 'sidebarElite' },
-  { label: 'Loadout Changer', href: productPath('unlock-all', locale), icon: 'sidebarSkin' },
-  { label: 'HWID Spoofer', href: productPath('hwid-spoofer', locale), icon: 'sidebarHwid' },
-  { label: 'UGC', href: productPath('ugc', locale), icon: 'sidebarUgc' },
+  { label: `${post.slug} — MW4 product hub`, href: localizePath(locale, ROUTES.products), icon: 'sidebarHub' },
+  { label: `${post.slug} — Elite tier`, href: localizePath(locale, ROUTES.productsElite), icon: 'sidebarElite' },
+  { label: `${post.slug} — Loadout Changer`, href: productPath('unlock-all', locale), icon: 'sidebarSkin' },
+  { label: `${post.slug} — HWID Spoofer tool`, href: productPath('hwid-spoofer', locale), icon: 'sidebarHwid' },
+  { label: `${post.slug} — UGC appeals`, href: productPath('ugc', locale), icon: 'sidebarUgc' },
 ];
 ---
 
@@ -57,7 +59,7 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
       <section class="blog-sidebar__block" aria-labelledby="blog-sidebar-toc-title">
         <h2 id="blog-sidebar-toc-title" class="blog-sidebar__heading">
           <Icon name="layers" size={14} class="text-primary" aria-hidden="true" />
-          <span class="blog-sidebar__heading-text">In this article</span>
+          <span class="blog-sidebar__heading-text">{tocHeadingText ?? 'In this article'}</span>
           {tocCount > 0 && (
             <Badge variant="secondary" size="sm" class="h-5 shrink-0 rounded-full px-1.5 tabular-nums text-[10px]">
               {tocCount}
@@ -128,7 +130,7 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
       class="blog-sidebar__cta mt-2.5 w-full min-w-0 justify-start"
       aria-label={t.ui.checkoutAria}
     >
-      <span class="truncate">Buy Modern Warfare Cheats</span>
+      <span class="truncate">Buy MW4 — {post.slug}</span>
       <Icon name="arrowRight" size={16} class="shrink-0" />
     </Button>
   </section>

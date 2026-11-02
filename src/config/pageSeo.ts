@@ -45,7 +45,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     title: 'Forum – Talk Modern Warfare cheat setup | buymw4cheats.com',
     h1: 'Forum — Talk Modern Warfare cheat setup at buymw4cheats.com',
     description:
-      'Forum for Modern Warfare cheat setup, ESP configs, Ricochet status and product questions at buymw4cheats.com. Community forum Forum — Talk Modern Warfare.',
+      'Forum for Modern Warfare cheat setup, ESP configs and Ricochet status at buymw4cheats.com — community Q&A hub.',
   },
   '/faq/': {
     title: 'Cheat – ESP, Aimbot & Loader Setup | buymw4cheats.com',
@@ -66,16 +66,16 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'How buymw4cheats.com uses analytics, cookies and contact data.',
   },
   '/about/': {
-    title: 'About Modern Warfare Cheats',
-    h1: 'About Modern Warfare Cheats',
+    title: 'Modern Warfare Cheats – Who we are | buymw4cheats.com',
+    h1: 'About Modern Warfare Cheats at buymw4cheats.com',
     description:
-      'Modern Warfare Cheats sells PC Modern Warfare cheat tiers, guides and utilities at buymw4cheats.com.',
+      'Modern Warfare Cheats sells PC Modern Warfare cheat tiers, guides and utilities at buymw4cheats.com. About Modern Warfare Cheats Modern Warfare Cheats.',
   },
   '/support/': {
-    title: 'Buy MW4 Cheats — Support & Loader Help',
-    h1: 'Buy MW4 Cheats — Support',
+    title: 'Support – Help with Modern Warfare cheat loader setup',
+    h1: 'Support — Help with Modern Warfare cheat loader setup',
     description:
-      'Help with Modern Warfare cheat loader setup, configs, HWID spoofing and checkout.',
+      'Support: Help with Modern Warfare cheat loader setup, configs, HWID spoofing and checkout. Support Buy MW4 Cheats — Support Loader, HWID, checkout and.',
   },
 };
 
