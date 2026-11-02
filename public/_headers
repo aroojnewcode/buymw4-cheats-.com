@@ -27,8 +27,8 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
-  Content-Type: application/xml
+  Content-Type: text/xml
 
-/sitemap-*.xml
+/sitemap-all.xml
   Cache-Control: public, max-age=86400
-  Content-Type: application/xml
+  Content-Type: text/xml

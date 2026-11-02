@@ -37,9 +37,9 @@ const productsHubHref = ROUTES.products;
 function faqAnchor(label: string, href: string): string {
   return link(label, href);
 }
-const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
+const hwidHref = productPath('hwid-spoofer');
 const ugcHref = productPath('ugc');
-const skin = link('Loadout Changer', productPath('unlock-all'));
+const skinHref = productPath('unlock-all');
 const faqPage = link('full FAQ index', ROUTES.faq);
 const blog = link('blog guides', ROUTES.blog);
 
@@ -84,7 +84,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `${faqAnchor('Products hub 1', productsHubHref)} lists cheat tiers, ${hwid}, ${faqAnchor('UGC recovery product', ugcHref)}, and ${skin} with feature lists and checkout via our partner.`,
+    a: `${faqAnchor('Products hub 1', productsHubHref)} lists cheat tiers, ${faqAnchor('HWID Spoofer utility', hwidHref)}, ${faqAnchor('UGC recovery product', ugcHref)}, and ${faqAnchor('Loadout Changer utility', skinHref)} with feature lists and checkout via our partner.`,
   },
   {
     id: 'what-is-esp',
@@ -158,7 +158,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${faqAnchor('UGC appeals workspace', ugcHref)} instead.`,
+    a: `Use ${faqAnchor('HWID Spoofer when hardware banned', hwidHref)} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${faqAnchor('UGC appeals workspace', ugcHref)} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -174,7 +174,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqSkinChanger',
     q: 'Does Loadout Changer modify my loadout menu?',
-    a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${faqAnchor('Elite tier 39', eliteHref)}; available standalone for cosmetic preview only.`,
+    a: `${faqAnchor('Loadout Changer cosmetic preview', skinHref)} previews cosmetics locally on your client. Other players see your real inventory. Included with ${faqAnchor('Elite tier 39', eliteHref)}; available standalone for cosmetic preview only.`,
     scopes: ['unlock-all'],
   },
   {
@@ -453,7 +453,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'products',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace HWID or UGC products?',
-      a: `Recovery guides complement ${hwid} and ${faqAnchor('UGC ban recovery tool', ugcHref)}—read product pages for workflow scope and realistic outcomes.`,
+      a: `Recovery guides complement ${faqAnchor('HWID spoofer docs', hwidHref)} and ${faqAnchor('UGC ban recovery tool', ugcHref)}—read product pages for workflow scope and realistic outcomes.`,
     });
   }
 

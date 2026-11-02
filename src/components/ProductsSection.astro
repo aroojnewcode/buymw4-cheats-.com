@@ -55,6 +55,7 @@ function cardLabel(product: (typeof productPages)[number]) {
                       class="catalog-card--carousel"
                       label={cardLabel(product)}
                       title={product.title}
+                      titleLinkText={`${product.title} — home products carousel`}
                       href={productPath(product.slug, locale)}
                       buyUrl={product.buyUrl}
                       features={product.features}
@@ -62,8 +63,8 @@ function cardLabel(product: (typeof productPages)[number]) {
                       icon={cardIcon(product)}
                       badge={product.badge}
                       variant={product.variant}
-                      buyLabel="Buy now"
-                      viewLabel={s.explore}
+                      buyLabel={`Buy ${product.slug}`}
+                      viewLabel={`Explore ${product.slug} on carousel`}
                       maxFeatures={5}
                     />
                   </CarouselItem>

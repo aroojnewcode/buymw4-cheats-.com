@@ -12,6 +12,7 @@ if (!key) {
 }
 
 const sitemapPath = [
+  path.join(dist, 'sitemap.xml'),
   path.join(dist, 'sitemap-all.xml'),
   path.join(dist, 'sitemap-0.xml'),
 ].find((p) => fs.existsSync(p));

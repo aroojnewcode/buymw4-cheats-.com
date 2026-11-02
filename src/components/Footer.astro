@@ -17,15 +17,15 @@ const L = (path: string) => localizePath(locale, path);
 
 const resourceLinks = [
   { href: L('/blog/'), label: 'Blog articles index', ariaLabel: t.blog.eyebrow },
-  { href: L('/products/mw4-cheats/elite/'), label: t.cheats.title, ariaLabel: 'Elite tier product page' },
+  { href: L('/products/mw4-cheats/elite/'), label: 'Support nav — MW4 Elite tier page', ariaLabel: 'Elite tier product page' },
   { href: L('/products/mw4-cheats/'), label: 'MW4 product comparison hub', ariaLabel: t.products.eyebrow },
   { href: L('/support/'), label: 'Email & Discord support', ariaLabel: t.footer.support },
 ];
 
 const legalLinks = [
   { href: L('/about/'), label: 'Legal hub — About us' },
-  { href: L('/privacy/'), label: t.footer.privacy },
-  { href: L('/terms/'), label: t.footer.terms },
+  { href: L('/privacy/'), label: 'Site footer — Privacy Policy' },
+  { href: L('/terms/'), label: 'Site footer — Terms & Conditions' },
 ];
 
 /** Discover priority-locale pages (reduces sitemap orphans). */
@@ -36,6 +36,12 @@ const localeDiscoveryLinks = [
   { href: '/ko/blog/mw4-aimbot-combat-guide/', label: 'KO — MW4 aimbot combat guide' },
   { href: '/ko/blog/mw4-aimbot-ranked-guide/', label: 'KO — MW4 aimbot ranked guide' },
   { href: '/ko/blog/mw4-cheats-features-guide/', label: 'KO — MW4 cheats features guide' },
+  { href: '/ko/blog/mw4-elite-tier-guide/', label: 'KO — MW4 Elite tier guide' },
+  { href: '/ko/blog/mw4-esp-wallhack-setup/', label: 'KO — ESP wallhack setup guide' },
+  { href: '/ko/blog/mw4-external-cheat-guide/', label: 'KO — External cheat guide' },
+  { href: '/ko/blog/mw4-hwid-spoofer-after-ban/', label: 'KO — HWID spoofer after ban' },
+  { href: '/ko/blog/mw4-lite-vs-pro/', label: 'KO — Lite vs Pro comparison' },
+  { href: '/ko/blog/mw4-loadout-changer-guide/', label: 'KO — Loadout changer guide' },
 ];
 ---
 

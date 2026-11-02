@@ -65,6 +65,7 @@ function cardLabel(product: (typeof productPages)[number]) {
           <CatalogCard
             label={cardLabel(product)}
             title={product.title}
+            titleLinkText={`${product.title} — MW4 catalog`}
             href={productPath(product.slug)}
             buyUrl={product.buyUrl}
             features={product.features}
@@ -72,8 +73,8 @@ function cardLabel(product: (typeof productPages)[number]) {
             icon={cardIcon(product)}
             badge={product.badge}
             variant={product.variant}
-            buyLabel="Buy now"
-            viewLabel="View details"
+            buyLabel={`Checkout ${product.slug}`}
+            viewLabel={`Product page: ${product.slug}`}
           />
         ))}
       </div>

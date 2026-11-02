@@ -45,7 +45,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     title: 'Forum – Talk Modern Warfare cheat setup | buymw4cheats.com',
     h1: 'Forum — Talk Modern Warfare cheat setup at buymw4cheats.com',
     description:
-      'Forum for Modern Warfare cheat setup, ESP configs, Ricochet status and product questions at buymw4cheats.com.',
+      'Forum for Modern Warfare cheat setup, ESP configs, Ricochet status and product questions at buymw4cheats.com. Community forum Forum — Talk Modern Warfare.',
   },
   '/faq/': {
     title: 'Cheat – ESP, Aimbot & Loader Setup | buymw4cheats.com',

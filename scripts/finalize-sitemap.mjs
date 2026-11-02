@@ -227,24 +227,6 @@ const localeFiles = [
   { key: 'fr', name: 'sitemap-fr.xml' },
 ];
 
-const localeWritten = [];
-// Language sitemaps (each URL appears in exactly one locale file — index lists these only).
-for (const child of localeFiles) {
-  const result = writeUrlset(byLocale[child.key], child.name);
-  if (result) localeWritten.push(result);
-}
-
-/** @type {{ name: string, lastmod: string, count: number }[]} */
-const written = [...localeWritten];
-
-// Content-type urlsets are not published (would duplicate every <loc> vs locale sitemaps).
-
-const indexXml = renderIndex(localeWritten);
-// GSC entry point: /sitemap.xml is the index (also mirrored as sitemap-index.xml).
-fs.writeFileSync(path.join(dist, 'sitemap.xml'), indexXml, 'utf8');
-fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
-
-// Keep a combined urlset for IndexNow + tools that expect one file of <url> entries.
 const globalSeen = new Set();
 const allUrls = [];
 for (const code of ['en', ...LOCALE_CODES]) {
@@ -255,26 +237,27 @@ for (const code of ['en', ...LOCALE_CODES]) {
   }
 }
 allUrls.sort((a, b) => a.loc.localeCompare(b.loc));
-fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), renderUrlset(allUrls), 'utf8');
-fs.writeFileSync(path.join(dist, 'sitemap-all.xml'), renderUrlset(allUrls), 'utf8');
 
-// Fail the build if a language sitemap is empty (SEO breakage).
-for (const child of localeFiles) {
-  if ((byLocale[child.key]?.length ?? 0) === 0) {
-    console.error(`finalize-sitemap: missing URLs for locale "${child.key}"`);
-    process.exit(1);
-  }
-  if (!fs.existsSync(path.join(dist, child.name))) {
-    console.error(`finalize-sitemap: expected file missing: ${child.name}`);
-    process.exit(1);
-  }
+// Single public sitemap (urlset) — avoids audit failures on child sitemap-en.xml etc.
+const combinedXml = renderUrlset(allUrls);
+fs.writeFileSync(path.join(dist, 'sitemap.xml'), combinedXml, 'utf8');
+fs.writeFileSync(path.join(dist, 'sitemap-all.xml'), combinedXml, 'utf8');
+fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), combinedXml, 'utf8');
+
+// Remove split sitemaps so crawlers are not sent to unsupported child XML URLs.
+for (const child of [...localeFiles, ...contentFiles]) {
+  const filePath = path.join(dist, child.name);
+  if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+}
+if (fs.existsSync(path.join(dist, 'sitemap-index.xml'))) {
+  fs.unlinkSync(path.join(dist, 'sitemap-index.xml'));
 }
 
-console.log(`Sitemap finalized: ${total} URLs`);
-console.log('Language sitemaps (in index):');
-for (const w of localeWritten) {
-  console.log(`  ${SITE}/${w.name} (${w.count})`);
+if (allUrls.length === 0) {
+  console.error('finalize-sitemap: no URLs in combined sitemap.');
+  process.exit(1);
 }
-console.log('  (content-type urlsets are not published — avoids duplicate <loc> in robots)');
-console.log('  sitemap.xml / sitemap-index.xml → index');
-console.log('  sitemap-all.xml → combined urlset');
+
+console.log(`Sitemap finalized: ${allUrls.length} URLs in sitemap.xml (single urlset)`);
+console.log(`  ${SITE}/sitemap.xml`);
+console.log('  (per-locale sitemap-*.xml files removed from dist)');
