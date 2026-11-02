@@ -1,0 +1,761 @@
+import type { Translations } from './types';
+import { cheatScreenshotSrcForSlug } from '../config/cheat-media';
+import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
+import { DISCORD_URL, PRODUCT_BASE } from '../config/site';
+
+const productBase = PRODUCT_BASE;
+
+export const en: Translations = {
+  site: {
+    name: 'Modern Warfare Cheats',
+    domain: 'buymw4cheats.com',
+    title: 'Modern Warfare Cheats — ESP, Radar & Ranked Overlays for PC',
+    description:
+      'Modern Warfare cheats for PC with player ESP, wallhack, Minimap radar, loot ESP, aimbot and loadout changer. Built for Multiplayer & Warzone PvP, Warzone and Zombies. Updated after Activision patches.',
+    discord: DISCORD_URL,
+  },
+  nav: [
+    { href: '/', label: 'Home' },
+    { href: `${productBase}`, label: 'Products' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/forum/', label: 'Forum' },
+    { href: '/faq/', label: 'FAQ' },
+    { href: '/support/', label: 'Support' },
+  ],
+  hero: {
+    status: 'Modern Warfare online',
+    eyebrow: 'Undetected Modern Warfare cheats',
+    titleLine1: 'Buy MW4 Cheats —',
+    titleLine2: 'ESP, Aimbot & Radar for PC',
+    subtitle:
+      'Player ESP, wallhack, Minimap radar, loot ESP and weapon aimbot for Multiplayer & Warzone PvP, Warzone, Ranked and Zombies on Windows PC. Updated after Modern Warfare and Activision patches.',
+    ctaPrimary: 'View products',
+    ctaDiscord: 'Join Discord',
+    modesLabel: 'Content',
+    modes: ['Multiplayer', 'Warzone', 'Ranked', 'Zombies'],
+    metrics: [
+      { label: 'Stream-safe', strong: 'Yes' },
+      { label: 'Patch speed', strong: '<24h' },
+      { label: 'Users', strong: '300+' },
+      { label: 'Support', strong: '24/7' },
+    ],
+  },
+  features: {
+    eyebrow: 'Features',
+    title: 'What you get',
+    subtitle: 'ESP, wallhack, Minimap radar, loot ESP and weapon aimbot for Modern Warfare on PC. Updated every Ricochet patch.',
+    items: [
+      {
+        title: 'Aimbot',
+        subtitle: 'Smooth targeting, per weapon',
+        desc: 'Weapon aimbot for Multiplayer, Warzone and Ranked. Set smoothness, range, bone priority and separate profiles for AR, SMG, sniper and shotgun.',
+        bullets: [
+          'Smoothness and range sliders',
+          'Target priority: lowest HP, closest or focus target',
+          'Profiles for AR, SMG, sniper and shotgun',
+          'Prediction on flying and grounded targets',
+          'Presets for Multiplayer, Warzone and Ranked',
+        ],
+        tags: ['modern warfare aimbot', 'weapon presets', 'bone priority'],
+        bento: 'sm:col-span-2 lg:col-span-12 lg:col-start-1 lg:row-start-1',
+      },
+      {
+        title: 'ESP / Wallhack',
+        subtitle: 'See players through builds',
+        desc: 'Boxes, skeletons, distance and health on enemy players through walls, builds and map geometry.',
+        bullets: [
+          'Player boxes, skeletons, HP and distance',
+          'Team / enemy colors',
+          'Alerts when enemies approach or go missing',
+        ],
+        tags: ['modern warfare ESP', 'wallhack', 'faction ESP'],
+        bento: 'sm:col-span-2 lg:col-span-8 lg:col-start-1 lg:row-start-2',
+      },
+      {
+        title: 'Radar',
+        subtitle: 'Know where fights are',
+        desc: '2D radar for nearby enemies, map POIs and squad fights—including vertical player cues.',
+        bullets: ['Enemy dots on mini-radar', 'Map POI and objective markers', 'Works with ESP wallhack'],
+        tags: ['modern warfare radar', 'minimap radar', 'warzone awareness'],
+        bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-1 lg:row-start-3',
+      },
+      {
+        title: 'Drop / Loot ESP',
+        subtitle: 'Find drops and loot crates',
+        desc: 'Shows world drops, loot crates and rare loot with distance so you can farm and move on faster.',
+        bullets: ['Loot crate and weapon ESP', 'Rare drop markers', 'Cash and plate hints'],
+        tags: ['loot ESP', 'loot ESP', 'farming'],
+        bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-7 lg:row-start-3',
+      },
+      {
+        title: 'Loadout Changer',
+        subtitle: 'Local operator & camo preview',
+        desc: 'Preview operators, camos and attachments on your client only. Does not change Activision store purchases.',
+        bullets: [
+          'Operator and camo appearance preview',
+          'Favorites and preset export',
+          'Included with Elite or sold as Unlock All',
+        ],
+        tags: ['loadout changer', 'operator preview', 'cosmetics'],
+        bento:
+          'sm:col-span-2 lg:col-span-8 lg:row-span-2 lg:col-start-1 lg:row-start-4',
+      },
+      {
+        title: 'Stream Proof',
+        subtitle: 'Hide overlays on stream',
+        desc: 'You see ESP and aimbot on your screen. OBS and other capture tools get a clean Modern Warfare feed.',
+        bullets: [
+          'OBS and capture modes',
+          'Toggle per module',
+          'Setup notes in the portal',
+        ],
+        tags: ['stream proof', 'stream safe', 'capture hide'],
+        bento:
+          'sm:col-span-2 lg:col-span-4 lg:row-span-2 lg:col-start-9 lg:row-start-4',
+      },
+      {
+        title: 'Cloud Config & Anti-Cheat Updates',
+        subtitle: 'After every patch',
+        desc: 'Save configs to the cloud. Loader updates go out after Modern Warfare and Ricochet patches.',
+        bullets: ['Cloud backup for ESP and weapon presets', 'Loader updates after Ricochet patches', 'Status notes in Discord #status'],
+        tags: ['cloud sync', 'Ricochet updates', 'presets'],
+        bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-1 lg:row-start-6',
+      },
+      {
+        title: 'Modes',
+        subtitle: 'Multiplayer, Warzone, Ranked, Zombies',
+        desc: 'Presets for Multiplayer, Warzone, Ranked and Zombies modes.',
+        bullets: ['Warzone and Ranked presets', 'Safer defaults for gas circles', 'Squad-ready ESP layouts'],
+        tags: ['warzone', 'ranked', 'multiplayer'],
+        bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-7 lg:row-start-6',
+      },
+      {
+        title: 'Extra tools',
+        subtitle: 'Elite options',
+        desc: 'Auto finish, Auto plate break and loot assist on Elite, on top of ESP wallhack and aimbot.',
+        bullets: [
+          'Auto finish on low-HP enemies',
+          'Auto plate break on armored targets',
+          'Loot assist on Elite',
+        ],
+        tags: ['auto kill', 'loot assist', 'utilities'],
+        bento: 'sm:col-span-2 lg:col-span-4 lg:col-start-9 lg:row-start-2',
+      },
+    ],
+  },
+  whyUs: {
+    eyebrow: 'Why us',
+    title: 'Updated after Ricochet patches',
+    subtitle:
+      'A lot of Modern Warfare cheat sites go down after patches and leave you with bots in chat. We push loader updates, keep Ranked-safe defaults, and answer on Discord.',
+    usLabel: 'Modern Warfare Cheats',
+    otherLabel: 'Typical shop',
+    rows: [
+      {
+        title: 'Loader updates after patches',
+        desc: 'New builds usually go out within hours of a Modern Warfare or Ricochet update. Check Discord #status before you enter Ranked.',
+      },
+      {
+        title: 'Ranked-safe defaults',
+        desc: 'Default ESP range, aimbot smoothness and bone priority are tuned for Ranked Play. You can tighten them later if you want.',
+      },
+      {
+        title: 'Discord support',
+        desc: 'People on Discord help with loader setup, class presets and HWID resets. Coverage is 24/7.',
+      },
+      {
+        title: 'External loader + stream proof',
+        desc: 'External loader with OBS-safe mode so overlays stay off your stream.',
+      },
+      {
+        title: 'Cloud configs',
+        desc: 'Save Warzone, Ranked and per-weapon settings and load them on another PC.',
+      },
+      {
+        title: 'HWID resets',
+        desc: 'Hardware resets and license moves go through Discord. Most shops lock you to one PC.',
+      },
+    ],
+    metrics: [
+      {
+        value: '<24h',
+        title: 'Patch turnaround',
+        desc: 'Usual time to ship a loader after a big Modern Warfare or Ricochet update.',
+      },
+      {
+        value: '24/7',
+        title: 'Support',
+        desc: 'Discord help for setup, configs and account issues.',
+      },
+      {
+        value: '300+',
+        title: 'Users',
+        desc: 'PC players using ESP, radar and tools on buymw4cheats.com.',
+      },
+    ],
+  },
+  setup: {
+    eyebrow: 'Setup',
+    titleLead: 'Checkout to in-game in',
+    titleHighlight: 'three steps',
+    intro:
+      'Buy access, download the loader from the portal, load a preset, then open Modern Warfare. Discord help is there if you get stuck.',
+    ctaPrimary: 'View products',
+    ctaSecondary: 'Setup FAQ',
+    ctaPrimaryHref: productBase,
+    ctaSecondaryHref: '/faq/',
+    steps: [
+      {
+        step: 'Step 1',
+        title: 'Buy and download the loader',
+        desc: 'Finish checkout, open the portal, and download the latest Windows loader.',
+      },
+      {
+        step: 'Step 2',
+        title: 'Load presets',
+        desc: 'Run the loader, pick an Ranked, Arena or mode preset, and set ESP and aimbot.',
+      },
+      {
+        step: 'Step 3',
+        title: 'Check status and play',
+        desc: 'Confirm the status banner is online, launch Modern Warfare, and use your saved config.',
+      },
+    ],
+  },
+  compatibility: {
+    eyebrow: 'Platform',
+    title: 'Windows PC',
+    subtitle: 'Check the status banner after Modern Warfare updates before you launch.',
+    items: ['Windows 10 & 11', 'Battle.net or Steam', 'Modern Warfare client', 'Auto updater', 'Config cloud sync', 'Discord support', 'HWID reset', 'External loader'],
+  },
+  cheats: {
+    eyebrow: 'Elite',
+    title: 'MW4 Elite',
+    subtitle: 'ESP wallhack, aimbot, loot assist, Loadout Changer, and faster patch priority.',
+    viewAll: 'View Elite details',
+    explore: 'Explore',
+    items: [
+      {
+        badge: 'Limited slots',
+        tier: 'Private',
+        name: 'Elite',
+        title: 'MW4 Elite',
+        desc: 'Elite Modern Warfare cheat with loot assist, Auto finish, Auto plate break, full ESP wallhack, Loadout Changer and direct Discord support.',
+        features: ['Loot Assist', 'Auto finish', 'Auto plate break', 'Full ESP wallhack', 'Loadout Changer', 'Priority patch queue'],
+        more: 42,
+        href: `${productBase}elite/`,
+        variant: 'limited',
+      },
+    ],
+  },
+  products: {
+    eyebrow: 'Products',
+    title: 'Modern Warfare products',
+    subtitle: 'Elite Modern Warfare cheats, HWID spoofer, UGC recovery and Loadout Changer.',
+    viewAll: 'View all products',
+    get: 'Get',
+    explore: 'Explore',
+    items: [
+      {
+        badge: 'Available',
+        category: 'System utility',
+        title: 'HWID Spoofer',
+        subtitle: 'Clean slate for your PC',
+        desc: 'Hardware ID spoofing for disk serials, MAC addresses and GPU IDs—follow the portal setup guide before launching Modern Warfare.',
+        features: ['Spoofer & cleanup tools', 'Serial profile rotation', 'Compatibility scan', 'Post-spoof verification'],
+        more: 9,
+        href: `${productBase}hwid-spoofer/`,
+      },
+      {
+        badge: 'Available',
+        category: 'Account recovery',
+        title: 'UGC',
+        subtitle: 'Unban & governance control',
+        desc: 'All-in-one appeal workspace for Activision account restrictions, Ricochet bans and security holds—custom workflows and dispute automation.',
+        features: ['Custom appeal workflows', 'Dispute automation', 'Case documentation', 'Status tracking dashboard'],
+        more: 6,
+        href: `${productBase}ugc/`,
+      },
+      {
+        badge: 'Available',
+        category: 'Cosmetic',
+        title: 'Loadout Changer',
+        subtitle: 'Unlock every cosmetic locally',
+        desc: 'Lightweight Loadout Changer for operators, camos and rare bundles—local preview without Activision store purchases.',
+        features: ['Outfit swap', 'Operator & camo customizer', 'Exclusive set preview', 'Preset favorites export'],
+        more: 7,
+        href: `${productBase}unlock-all/`,
+      },
+    ],
+  },
+  blog: {
+    eyebrow: 'Blog',
+    title: 'Guides and updates',
+    subtitle: 'ESP wallhack setup, Ranked presets, weapon aimbot tips and Ricochet patch-day checks for Modern Warfare.',
+    latestTitle: 'Latest articles',
+    latestSubtitle: 'Filter by topic or sort to find setup guides, feature deep-dives, and patch-day notes.',
+    filterAll: 'All articles',
+    sortLabel: 'Sort by',
+    sortNewest: 'Newest first',
+    sortOldest: 'Oldest first',
+    sortShortRead: 'Shortest read',
+    sortLongRead: 'Longest read',
+    emptyFilter: 'No articles match this filter.',
+    viewAll: 'View all articles',
+    read: 'Read',
+    items: [
+      {
+        tag: 'Guides',
+        title: 'Modern Warfare training guide: skill drills before Ranked',
+        slug: 'mw4-multiplayer-guide',
+        image: cheatScreenshotSrcForSlug('mw4-multiplayer-guide'),
+        desc: 'Use safe zones and bot lobbies to practice aimbot smoothness, ESP ranges and class presets before Ranked.',
+        date: 'Aug 20, 2026',
+        readTime: '10 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Modern Warfare tips for aimbot and ESP practice',
+        slug: 'mw4-multiplayer-tips',
+        image: cheatScreenshotSrcForSlug('mw4-multiplayer-tips'),
+        desc: 'Safe workflows to tune aimbot, ESP wallhack and loot ESP before Ranked or Ranked queues.',
+        date: 'Aug 19, 2026',
+        readTime: '6 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'How to practice Modern Warfare cheats safely',
+        slug: 'how-to-use-mw4-cheat-codes',
+        image: cheatScreenshotSrcForSlug('how-to-use-mw4-cheat-codes'),
+        desc: 'Training vs Ranked: how to test ESP and aimbot in safe zones before using private Modern Warfare cheats.',
+        date: 'Aug 18, 2026',
+        readTime: '7 min read',
+      },
+      {
+        tag: 'Features',
+        title: 'Modern Warfare cheats features: ESP, radar, loot assist and more',
+        slug: 'mw4-cheats-features-guide',
+        image: cheatScreenshotSrcForSlug('mw4-cheats-features-guide'),
+        desc: 'Complete guide to our Modern Warfare cheats—Aimbot, Loot Assist, Loadout Changer, Radar Hack, ESP Wallhack and Auto plate break.',
+        date: 'Aug 18, 2026',
+        readTime: '12 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Safe practice vs Ranked Modern Warfare cheats',
+        slug: 'mw4-multiplayer-vs-warzone',
+        image: cheatScreenshotSrcForSlug('mw4-multiplayer-vs-warzone'),
+        desc: 'How safe-zone practice differs from private ESP and aimbot tools used in open-world PvP and Ranked.',
+        date: 'Aug 17, 2026',
+        readTime: '8 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Modern Warfare Lite vs Pro: which tier fits you',
+        slug: 'mw4-lite-vs-pro',
+        image: cheatScreenshotSrcForSlug('mw4-lite-vs-pro'),
+        desc: 'Map awareness vs skill automation—compare Lite and Pro Modern Warfare cheats for Ranked, Rankeds and Warzone.',
+        date: 'Aug 16, 2026',
+        readTime: '5 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Elite tier guide: when to upgrade your Modern Warfare cheats',
+        slug: 'mw4-elite-tier-guide',
+        image: cheatScreenshotSrcForSlug('mw4-elite-tier-guide'),
+        desc: 'Loot Assist, Auto finish, Loadout Changer and full ESP wallhack—who Elite is for and how to tune safely.',
+        date: 'Aug 16, 2026',
+        readTime: '7 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'Modern Warfare aimbot for Ranked',
+        slug: 'mw4-aimbot-ranked-guide',
+        image: cheatScreenshotSrcForSlug('mw4-aimbot-ranked-guide'),
+        desc: 'Skill assist, prediction and hotkey macros for climbing ranked with Pro tier Modern Warfare cheats.',
+        date: 'Aug 15, 2026',
+        readTime: '6 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'ESP wallhack setup for Modern Warfare Ranked',
+        slug: 'mw4-esp-wallhack-setup',
+        image: cheatScreenshotSrcForSlug('mw4-esp-wallhack-setup'),
+        desc: 'Enemy position tracking, faction colors, loot ESP and range caps for Lite and Elite tiers.',
+        date: 'Aug 15, 2026',
+        readTime: '5 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'Radar hack guide for Modern Warfare',
+        slug: 'mw4-radar-hack-guide',
+        image: cheatScreenshotSrcForSlug('mw4-radar-hack-guide'),
+        desc: 'Mini-radar, Zombies awareness and safe distance caps for Ranked, Rankeds and open-world PvP.',
+        date: 'Aug 14, 2026',
+        readTime: '5 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Costume changer and Unlock All for Modern Warfare',
+        slug: 'mw4-loadout-changer-guide',
+        image: cheatScreenshotSrcForSlug('mw4-loadout-changer-guide'),
+        desc: 'Preview outfits, operators and exclusive bundles locally with our Unlock All Loadout Changer module.',
+        date: 'Aug 14, 2026',
+        readTime: '6 min read',
+      },
+      {
+        tag: 'Updates',
+        title: 'Anti-cheat patch day checklist for Modern Warfare cheats',
+        slug: 'ricochet-patch-day-checklist',
+        image: cheatScreenshotSrcForSlug('ricochet-patch-day-checklist'),
+        desc: 'Status banner, loader reload and conservative profiles after every Modern Warfare or Ricochet update.',
+        date: 'Aug 13, 2026',
+        readTime: '5 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'HWID spoofer vs new account after an Ricochet ban',
+        slug: 'mw4-hwid-spoofer-after-ban',
+        image: cheatScreenshotSrcForSlug('mw4-hwid-spoofer-after-ban'),
+        desc: 'When to spoof hardware, when to start fresh, and how buymw4cheats.com/products/mw4-cheats fits each path.',
+        date: 'Aug 13, 2026',
+        readTime: '7 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'How to buy Modern Warfare cheats in 2026',
+        slug: 'how-to-buy-mw4-cheats-2026',
+        image: cheatScreenshotSrcForSlug('how-to-buy-mw4-cheats-2026'),
+        desc: 'Step-by-step purchase walkthrough for Lite, Pro and Elite via our secure checkout.',
+        date: 'Aug 12, 2026',
+        readTime: '5 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'Aimbot guide: AR, SMG and sniper profiles',
+        slug: 'mw4-aimbot-combat-guide',
+        image: cheatScreenshotSrcForSlug('mw4-aimbot-combat-guide'),
+        desc: 'Per-weapon aimbot profiles for Pro tier—melee, ranged and caster setups for Ranked.',
+        date: 'Aug 12, 2026',
+        readTime: '6 min read',
+      },
+      {
+        tag: 'Troubleshooting',
+        title: 'Ricochet anti-cheat was unable to verify Modern Warfare',
+        slug: 'ricochet-bypass-mw4-guide',
+        image: cheatScreenshotSrcForSlug('ricochet-bypass-mw4-guide'),
+        desc: 'Fix verification errors, file integrity checks and when to use UGC appeal workflows after anti-cheat issues.',
+        date: 'Aug 11, 2026',
+        readTime: '6 min read',
+      },
+      {
+        tag: 'Guides',
+        title: 'Modern Warfare external cheat guide',
+        slug: 'mw4-external-cheat-guide',
+        image: cheatScreenshotSrcForSlug('mw4-external-cheat-guide'),
+        desc: 'Why external Modern Warfare cheats matter, how the external loader works on PC and what makes private software safer than free tools.',
+        date: 'Aug 11, 2026',
+        readTime: '7 min read',
+      },
+      {
+        tag: 'Setup',
+        title: 'Stream-proof overlay setup for Modern Warfare',
+        slug: 'mw4-stream-proof-setup',
+        image: cheatScreenshotSrcForSlug('mw4-stream-proof-setup'),
+        desc: 'Hide ESP wallhack and aimbot overlays from OBS and capture tools—test workflow for content creators.',
+        date: 'Aug 10, 2026',
+        readTime: '5 min read',
+      },
+    ],
+  },
+  toolkit: {
+    eyebrow: 'Software',
+    title: 'Organized, easy to configure',
+    subtitle: 'Every module is grouped for quick tuning mid-fight without tabbing through chaos.',
+    items: [
+      { num: '01', label: 'Aimbot', title: 'Tracking that adapts per class', desc: 'Smoothness, range, sticky targeting and bone priority in one aimbot tab.' },
+      { num: '02', label: 'ESP', title: 'Wallhack that stays readable', desc: 'Boxes, skeletons, distance, health and Ally / Enemy faction filters.' },
+      { num: '03', label: 'Radar', title: 'Ranked fights on lock', desc: 'Enemy dots, objective markers and mini-radar with Zombies-height cues.' },
+      { num: '04', label: 'Weapons', title: 'Per-weapon aim profiles', desc: 'Save AR, SMG, sniper, shotgun and more—swap with hotkeys.' },
+      { num: '05', label: 'Loot', title: 'Loot ESP & loot assist', desc: 'Drop highlights, loot crates and Elite Loot Assist pathing.' },
+      { num: '06', label: 'Profiles', title: 'Configs for every mode', desc: 'Multiplayer, Warzone and Ranked presets with cloud backup.' },
+    ],
+  },
+  workflow: {
+    eyebrow: 'How it works',
+    badge: '4 steps',
+    titleBefore: 'From buy to',
+    titleHighlight: 'saved config.',
+    subtitle: 'Buy, download the loader, set modules, save your Modern Warfare config for next time.',
+    ctaLabel: 'View products',
+    ctaHref: productBase,
+    ctaSecondary: 'Setup FAQ',
+    ctaSecondaryHref: '/faq/',
+    items: [
+      {
+        num: '01',
+        phase: 'Before purchase',
+        title: 'Check status',
+        desc: 'Read the live banner on buymw4cheats.com before you buy or launch.',
+      },
+      {
+        num: '02',
+        phase: 'Checkout',
+        title: 'Pick a tier',
+        desc: 'Choose Lite, Pro or Elite based on which modules you need.',
+      },
+      {
+        num: '03',
+        phase: 'Loader',
+        title: 'Launch and set up',
+        desc: 'Download from the portal, turn on modules, and test in a safe zone or bot lobby.',
+      },
+      {
+        num: '04',
+        phase: 'In-game',
+        title: 'Save your config',
+        desc: 'When the settings feel right, save Ranked, Arena and mode presets to the cloud.',
+      },
+    ],
+  },
+  fieldNotes: {
+    eyebrow: 'Notes',
+    title: 'Quick tips',
+    items: [
+      { num: '01', title: 'After patches', desc: 'Check Discord and the portal status before you queue Ranked after a Modern Warfare update.' },
+      { num: '02', title: 'Start slow', desc: 'Use the default aim smoothness and ESP range first, then raise them if you need to.' },
+      { num: '03', title: 'Discord help', desc: 'Stuck on the loader or configs? Ask in Discord and someone will walk you through it.' },
+    ],
+  },
+  support: {
+    eyebrow: 'Support',
+    title: 'Modern Warfare Cheats support',
+    subtitle: 'Loader, HWID, checkout and account help.',
+    channels: [
+      {
+        icon: 'users',
+        title: 'Before you buy',
+        desc: 'Ask about tiers and what each product includes.',
+        linkLabel: 'Start checkout',
+        href: PRIMARY_CHECKOUT_PATH,
+      },
+      {
+        icon: 'headphones',
+        title: 'Email support',
+        desc: 'Loader errors, HWID and account issues.',
+        linkLabel: 'support@buymw4cheats.com',
+        href: 'mailto:support@buymw4cheats.com',
+      },
+      {
+        icon: 'navFaq',
+        title: 'FAQ',
+        desc: 'Compatibility, bans and setup answers.',
+        linkLabel: 'View FAQ',
+        href: '/faq/',
+      },
+      {
+        icon: 'clock',
+        title: 'Discord',
+        desc: 'Support online 24/7.',
+        linkLabel: 'Contact page',
+        href: '/support/',
+      },
+    ],
+    ticketTitle: 'Include in your ticket',
+    ticketItems: [
+      { title: 'Order email', desc: 'The email you used at checkout on buymw4cheats.com.' },
+      { title: 'Platform', desc: 'Windows 10 or 11, Battle.net / Steam, and your Modern Warfare version.' },
+      { title: 'Error detail', desc: 'Screenshot or exact text from the loader or Activision.' },
+    ],
+  },
+  faq: {
+    eyebrow: 'FAQ',
+    title: 'Common questions',
+    subtitle: 'Compatibility, bans, tiers and setup.',
+    items: [
+      {
+        num: '01',
+        q: 'Where do I check if Modern Warfare cheats are online?',
+        a: 'The live status banner is on buymw4cheats.com and in the Discord #status channel. Always check after a Modern Warfare or Ricochet update.',
+      },
+      {
+        num: '02',
+        q: 'What happens after I buy?',
+        a: 'Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching Modern Warfare.',
+      },
+      {
+        num: '03',
+        q: 'Can I get banned using private modern warfare cheats?',
+        a: 'Yes—any modification carries risk. anti-cheat and report systems evolve. Read current status and accept the risk before use.',
+      },
+      {
+        num: '04',
+        q: 'Which platforms are supported?',
+        a: 'Modern Warfare via the official launcher on Windows 10/11 64-bit only. macOS and Linux are not supported.',
+      },
+      {
+        num: '05',
+        q: 'Can I move my license to a new PC?',
+        a: 'Yes—use the HWID reset in your portal or open a Discord ticket. Limits depend on your tier.',
+      },
+      {
+        num: '06',
+        q: 'Where are products and utilities listed?',
+        a: 'Cheat tiers, HWID Spoofer, UGC and Loadout Changer live at buymw4cheats.com/products/mw4-cheats with feature lists and checkout via our partner.',
+      },
+    ],
+  },
+  footer: {
+    tagline: 'Modern Warfare cheats for PC: ESP, Minimap radar, aimbot and tools.',
+    explore: 'Explore',
+    exploreLinks: [
+      { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
+      { href: '/products/mw4-cheats/elite/', label: 'Elite modern warfare cheats', ariaLabel: 'Elite cheats' },
+      { href: '/products/mw4-cheats/', label: 'All products & utilities', ariaLabel: 'Products' },
+      { href: '/blog/', label: 'Read patch guides', ariaLabel: 'Blog' },
+      { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
+    ],
+    support: 'Support',
+    legal: 'Legal',
+    privacy: 'Privacy Policy',
+    terms: 'Terms & Conditions',
+    about: 'About',
+  },
+  legalPages: {
+    about: {
+      title: 'About Modern Warfare Cheats',
+      description:
+        'Modern Warfare Cheats sells Modern Warfare cheat tiers, utilities and guides at buymw4cheats.com.',
+      sections: [
+        {
+          heading: 'Who we are',
+          paragraphs: [
+            'Modern Warfare Cheats is a PC site for Modern Warfare ESP, wallhack, Minimap radar, weapon aimbot and Loadout Changer products. We post tier comparisons, setup guides and live status notes.',
+            'Game and product names are for identification only.',
+          ],
+        },
+        {
+          heading: 'What we sell',
+          paragraphs: [
+            'Lite, Pro and Elite Modern Warfare cheats, plus HWID Spoofer, Loadout Changer and UGC recovery. The blog covers configs, patch checks and Ricochet updates.',
+            'Pages are updated when Modern Warfare or the loader changes. Check the homepage status banner and Discord #status before you play.',
+          ],
+        },
+        {
+          heading: 'Support',
+          paragraphs: [
+            'Use Discord or email for loader errors, compatibility and checkout questions. Include your order email, Activision account and Windows version.',
+          ],
+        },
+      ],
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      description:
+        'How Modern Warfare Cheats handles analytics, cookies and contact data on buymw4cheats.com.',
+      sections: [
+        {
+          heading: 'Information we collect',
+          paragraphs: [
+            'We may collect basic analytics such as page views, device type, browser and approximate region through Google Analytics when it is enabled. Checkout runs on external pages. We do not store payment card data on buymw4cheats.com.',
+          ],
+        },
+        {
+          heading: 'How we use data',
+          paragraphs: [
+            'Analytics show which guides and product pages people use so we can fix broken links and improve pages. Support tickets keep the email and message you send until the issue is closed.',
+          ],
+        },
+        {
+          heading: 'Cookies',
+          paragraphs: [
+            'We use basic analytics cookies. You can block cookies in your browser. The site still works without them.',
+          ],
+        },
+        {
+          heading: 'Support',
+          paragraphs: [
+            'For privacy questions, use the Support page. Purchase and refund rules are in Terms & Conditions.',
+          ],
+        },
+      ],
+    },
+    terms: {
+      title: 'Terms & Conditions',
+      description:
+        'Purchase, license, refund and use terms for Modern Warfare Cheats products on buymw4cheats.com.',
+      sections: [
+        {
+          heading: 'Agreement',
+          paragraphs: [
+            'Last updated: September 2026. By using buymw4cheats.com or buying a product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
+          ],
+        },
+        {
+          heading: 'What you purchase',
+          paragraphs: [
+            'We sell Modern Warfare cheat tiers (Lite, Pro, Elite) and tools (HWID Spoofer, UGC, Loadout Changer / Unlock All) through a portal and Windows loader for Activision.',
+            'Product pages list what is included when you buy. Features can change when Modern Warfare or Ricochet updates.',
+          ],
+        },
+        {
+          heading: 'Checkout and delivery',
+          paragraphs: [
+            'Payment and license delivery run on external checkout pages. buymw4cheats.com does not process or store payment card numbers.',
+            'After purchase, use the operator portal linked from your order flow to download the current loader and setup guide before launching Modern Warfare.',
+          ],
+        },
+        {
+          heading: 'License use',
+          paragraphs: [
+            'Licenses are for your personal use only. Do not share loader files, portal logins, or license keys. HWID and device limits depend on your tier and are enforced in the portal.',
+          ],
+        },
+        {
+          heading: 'Refunds and purchases',
+          paragraphs: [
+            'All sales are final once checkout completes. We do not refund change-of-mind purchases, account bans, anti-cheat penalties, or issues caused by ignoring setup guides or running modules while the status banner shows offline.',
+            'If the product does not work as described on a supported setup—Modern Warfare on Windows 10/11, current loader from the portal, and the live status banner showing online when you started—contact us through the Support page. Include your order email, Windows version, Modern Warfare build, and screenshots or exact error text from the loader.',
+            'We may, at our discretion, offer a fix, replacement access, or partial/full refund when we confirm a fault on our side. We are not obligated to approve every request.',
+          ],
+        },
+        {
+          heading: 'Availability and risk',
+          paragraphs: [
+            'Third-party tools for Modern Warfare can conflict with game updates and anti-cheat systems. You use this software at your own risk, including possible account action.',
+            'Check the homepage status banner before every session. Do not queue Ranked while modules are offline or misaligned after a patch.',
+          ],
+        },
+        {
+          heading: 'Changes',
+          paragraphs: [
+            'We may update these terms. The “Last updated” date at the top will change when we do. Continued use of the site after changes means you accept the revised terms.',
+          ],
+        },
+        {
+          heading: 'Support',
+          paragraphs: [
+            'For terms, billing, or loader questions, use the buttons on the Support page. See also our Privacy Policy for how we handle site data.',
+          ],
+        },
+      ],
+    },
+    support: {
+      title: 'Modern Warfare Cheats Support',
+      description:
+        'Get support for loader, HWID, and checkout questions at buymw4cheats.com.',
+    },
+  },
+  ui: {
+    skipLink: 'Skip to main content',
+    browseCheats: 'Try Now',
+    browseCheatsMobile: 'Start checkout',
+    homeAria: 'Modern Warfare Cheats home',
+    checkoutAria: 'Start checkout',
+    discordAria: 'Join Modern Warfare Cheats on Discord',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    themeLight: 'Switch to light mode',
+    themeDark: 'Switch to dark mode',
+  },
+};

@@ -1,0 +1,37 @@
+# Checkout (same-tab 302 → Zadeyo)
+/go/mw4  https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Fmw4  302
+/go/mw4/  https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Fmw4  302
+/go/skin-changer  https://zadeyo.com/products/skin-changer  302
+/go/skin-changer/  https://zadeyo.com/products/skin-changer  302
+/go/hwid-spoofer  https://zadeyo.com/go/QRH?to=%2Fproducts%2Fhwid-spoofer  302
+/go/hwid-spoofer/  https://zadeyo.com/go/QRH?to=%2Fproducts%2Fhwid-spoofer  302
+/go/ugc  https://zadeyo.com/products/ugc  302
+/go/ugc/  https://zadeyo.com/products/ugc  302
+
+# Legacy paths
+/contact  /support/  301
+/contact/  /support/  301
+/cheats  /products/mw4-cheats/  301
+/cheats/  /products/mw4-cheats/  301
+/cheats/lite  /products/mw4-cheats/  301
+/cheats/lite/  /products/mw4-cheats/  301
+/cheats/pro  /products/mw4-cheats/  301
+/cheats/pro/  /products/mw4-cheats/  301
+/cheats/elite  /products/mw4-cheats/elite/  301
+/cheats/elite/  /products/mw4-cheats/elite/  301
+/cheats/compare  /blog/mw4-lite-vs-pro/  301
+/cheats/compare/  /blog/mw4-lite-vs-pro/  301
+/products/mw4-cheats  /products/mw4-cheats/  301
+/products/mw4-cheats/  /products/mw4-cheats/  301
+/products/mw4-cheats/elite  /products/mw4-cheats/elite/  301
+/products/mw4-cheats/elite/  /products/mw4-cheats/elite/  301
+/products/mw4-cheats/utilities  /products/mw4-cheats/utilities/  301
+/products/mw4-cheats/utilities/  /products/mw4-cheats/utilities/  301
+/products/mw4-cheats  /products/mw4-cheats/  301
+/products/mw4-cheats/  /products/mw4-cheats/  301
+/products/mw4-cheats/elite  /products/mw4-cheats/elite/  301
+/products/mw4-cheats/elite/  /products/mw4-cheats/elite/  301
+/products/mw4-cheats/utilities  /products/mw4-cheats/utilities/  301
+/products/mw4-cheats/utilities/  /products/mw4-cheats/utilities/  301
+/go/mw4  /go/mw4/  301
+/go/mw4/  /go/mw4/  301

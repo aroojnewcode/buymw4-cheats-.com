@@ -1,0 +1,83 @@
+{
+  "gameplay": [
+    {
+      "file": "mw4-esp-wallhack.webp",
+      "alt": "Arcane Modern Warfare cheat menu with ESP, aimbot and wallhack toggles on PC",
+      "caption": "Arcane menu",
+      "captionDesc": "Season 2 style overlay with ESP and aimbot modules grouped for quick tuning.",
+      "srcIndex": 0
+    },
+    {
+      "file": "mw4-aimbot-combat.webp",
+      "alt": "Arcane COD Modern Warfare cheat overlay with radar hack and player ESP enabled",
+      "caption": "Arcane S3 UI",
+      "captionDesc": "Updated Arcane panel with radar and wallhack options for Multiplayer.",
+      "srcIndex": 1
+    },
+    {
+      "file": "mw4-player-esp.webp",
+      "alt": "Modern Warfare 4 gameplay screenshot with enemy ESP boxes during a firefight",
+      "caption": "In-match ESP",
+      "captionDesc": "Live MW4 fight with player boxes and distance cues on screen.",
+      "srcIndex": 2
+    },
+    {
+      "file": "mw4-radar-hack.webp",
+      "alt": "MW4 Multiplayer moment showing wallhack skeleton ESP on multiple enemies",
+      "caption": "Skeleton ESP",
+      "captionDesc": "Readable bone ESP for third-party reads in crowded lobbies.",
+      "srcIndex": 3
+    },
+    {
+      "file": "mw4-auto-aim.webp",
+      "alt": "Call of Duty Modern Warfare 4 combat with cheat overlay highlighting targets",
+      "caption": "Target highlight",
+      "captionDesc": "Combat clip with visible enemy markers for aimbot and ESP tuning.",
+      "srcIndex": 4
+    },
+    {
+      "file": "mw4-loot-radar.webp",
+      "alt": "Modern Warfare 4 aimbot gameplay clip showing aggressive target tracking on PC",
+      "caption": "Aimbot tracking",
+      "captionDesc": "High smoothness aim assist during a public MW4 match—use conservative presets.",
+      "srcIndex": 5
+    },
+    {
+      "file": "mw4-loadout-changer.webp",
+      "alt": "MW4 ranked-style fight with aimbot lock and visible crosshair snap risk",
+      "caption": "Lock-on demo",
+      "captionDesc": "Shows why FOV caps and humanized smoothness matter under Ricochet.",
+      "srcIndex": 6
+    },
+    {
+      "file": "mw4-thermal-esp.webp",
+      "alt": "Modern Warfare 2026 cheat trainer with unlock all weapons and aimbot switches",
+      "caption": "Trainer unlock all",
+      "captionDesc": "External trainer panel for loadouts, unlocks and aimbot before queueing.",
+      "srcIndex": 7
+    },
+    {
+      "file": "mw4-build-fight-esp.webp",
+      "alt": "Call of Duty MW4 cheat trainer menu listing ESP wallhack and aimbot features",
+      "caption": "Feature list",
+      "captionDesc": "Grouped modules for ESP, radar and aimbot on Battle.net / Steam PC.",
+      "srcIndex": 8
+    },
+    {
+      "file": "mw4-warzone-wallhack.webp",
+      "alt": "MW4 external cheat loader with trainer toggles for Multiplayer and Warzone",
+      "caption": "Loader + trainer",
+      "captionDesc": "One-click start with trainer options visible beside the game window.",
+      "srcIndex": 9
+    },
+    {
+      "file": "mw4-spawn-esp.webp",
+      "alt": "Modern Warfare 4 2026 cheats trainer showing unlock all and aimbot configuration",
+      "caption": "Unlock all setup",
+      "captionDesc": "Preview operators, camos and weapons locally with trainer unlock modules.",
+      "srcIndex": 10
+    }
+  ],
+  "sourceCount": 11,
+  "cdn": "https://ooszazcwzmwhitdxwtom.supabase.co/storage/v1/object/public/seo-media-library/mw4"
+}

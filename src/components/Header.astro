@@ -1,0 +1,147 @@
+---
+import {
+  getTranslations,
+  localizePath,
+  resolveLocale,
+  type Locale,
+} from '../i18n';
+import { checkoutPath } from '../config/checkout';
+import { Button } from '@/components/starwind/button';
+import AnimatedThemeSwitch from './AnimatedThemeSwitch.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/starwind/sheet';
+import Icon from './icons/Icon.astro';
+import SlideRevealButton from './SlideRevealButton.astro';
+import type { IconName } from './icons/types';
+import { PRODUCT_BASE } from '../config/site';
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = resolveLocale(Astro.props.locale);
+const t = getTranslations(locale);
+const homeHref = localizePath(locale, '/');
+
+const navIconsByHref: Record<string, IconName> = {
+  '/': 'navHome',
+  [PRODUCT_BASE]: 'navProducts',
+  '/blog/': 'navBlog',
+  '/forum/': 'messageCircle',
+  '/faq/': 'navFaq',
+  '/support/': 'navSupport',
+};
+
+const purchaseUrl = checkoutPath('mw4');
+const nav = t.nav.map((link) => {
+  const bareHref = link.href;
+  return {
+    ...link,
+    bareHref,
+    href: localizePath(locale, bareHref),
+    icon: (navIconsByHref[bareHref] ?? 'navFeatures') as IconName,
+  };
+});
+---
+
+<header class="pointer-events-none fixed inset-x-0 top-0 z-50">
+  <div class="flex justify-center px-3 pt-3 sm:px-4 sm:pt-4" data-floating-nav>
+    <div
+      class="site-header-bar pointer-events-auto grid h-14 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-2 rounded-2xl border border-border/40 bg-background/35 px-3 text-foreground shadow-md shadow-black/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/25 dark:border-white/10 dark:bg-background/20 dark:shadow-black/25 sm:px-4 lg:h-[3.75rem] lg:grid-cols-[minmax(0,0.82fr)_auto_minmax(0,1.18fr)] lg:gap-3 lg:px-4 xl:px-5"
+    >
+      <div class="flex min-w-0 items-center justify-self-start">
+        <a
+          href={homeHref}
+          class="inline-flex min-w-0 max-w-full items-center gap-2 font-[family-name:var(--font-heading)] text-base font-bold tracking-wide sm:text-lg"
+          aria-label={t.ui.homeAria}
+        >
+          <img
+            src="/favicon.svg"
+            alt=""
+            width={32}
+            height={32}
+            class="size-8 shrink-0 rounded-md object-contain"
+            decoding="async"
+          />
+          <span class="truncate text-base sm:text-lg" aria-hidden="true">
+            MW4 <span class="text-primary">Cheats</span>
+          </span>
+        </a>
+      </div>
+
+      <nav
+        class="site-header-nav hidden min-w-0 -translate-x-1 items-center justify-center gap-0.5 justify-self-center lg:flex xl:translate-x-0 xl:gap-1.5"
+        aria-label="Primary"
+      >
+        {nav.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary xl:gap-1.5 xl:px-2.5"
+            data-nav-link
+            {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
+          >
+            <Icon name={link.icon} size={16} class="shrink-0" />
+            <span class="whitespace-nowrap">{link.label}</span>
+          </a>
+        ))}
+      </nav>
+
+      <div class="flex shrink-0 items-center justify-end justify-self-end pl-1 sm:pl-0">
+        <div class="site-header-actions hidden items-center gap-1.5 sm:flex sm:gap-2">
+          <LanguageSwitcher locale={locale} class="shrink-0 self-center" />
+          <SlideRevealButton href={purchaseUrl} class="hidden self-center lg:inline-flex" ariaLabel={t.ui.checkoutAria}>
+            {t.ui.browseCheats}
+          </SlideRevealButton>
+          <div class="nav-action-divider hidden h-9 items-center px-1 lg:flex" aria-hidden="true">
+            <span class="block h-9 w-px bg-border"></span>
+          </div>
+          <div class="flex h-9 items-center">
+            <AnimatedThemeSwitch size="md" ariaLabel={t.ui.themeLight} class="inline-flex" />
+          </div>
+        </div>
+
+        <Sheet class="lg:hidden">
+          <SheetTrigger
+            class="inline-flex size-9 items-center justify-center rounded-lg border border-border/80 bg-background/50 text-foreground transition-colors hover:bg-muted"
+            aria-label={t.ui.menuOpen}
+          >
+            <Icon name="menu" size={20} />
+          </SheetTrigger>
+          <SheetContent side="right" class="flex w-[min(100vw-2rem,20rem)] flex-col gap-4">
+            <SheetHeader>
+              <SheetTitle>{t.site.name}</SheetTitle>
+            </SheetHeader>
+            <nav class="flex flex-col gap-1" aria-label="Mobile">
+              {nav.map((link) => (
+                <a
+                  href={link.href}
+                  class="nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                  data-nav-link
+                  {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
+                >
+                  <Icon name={link.icon} size={16} />
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <div class="px-1">
+              <LanguageSwitcher locale={locale} compact class="w-full" />
+            </div>
+            <Button as="a" href={purchaseUrl} variant="primary" class="w-full justify-center" aria-label={t.ui.checkoutAria}>
+              {t.ui.browseCheatsMobile}
+            </Button>
+            <div class="flex justify-center pt-1">
+              <AnimatedThemeSwitch size="sm" ariaLabel={t.ui.themeLight} />
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </div>
+  </div>
+</header>

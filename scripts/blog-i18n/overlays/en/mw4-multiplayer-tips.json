@@ -1,0 +1,86 @@
+{
+  "title": "Modern Warfare Training tips for aimbot and ESP practice",
+  "desc": "Training and private-lobby workflows to tune aimbot, ESP wallhack and loot ESP before Ranked.",
+  "tag": "Guides",
+  "readTime": "14 min read",
+  "body": [
+    {
+      "type": "p",
+      "text": "Training and private lobbies are training tools—not the same as private modern warfare cheats used in Ranked. Use them to tune [Pro aimbot](/products/mw4-cheats/) and ESP ranges before going live on PC."
+    },
+    {
+      "type": "h2",
+      "text": "Aimbot smoothness drills"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Load the Ranked preset with high smoothness and moderate FOV.",
+        "Run staff mid-range skill chains for five minutes without changing sliders.",
+        "Switch to bow close-range tracking, then gun finisher timing.",
+        "Only lower smoothness after tracking looks human in replays.",
+        "Save a Private match profile separate from your Ranked preset."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "ESP and wallhack readability"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Start player boxes and skeletons at 1200 units max distance.",
+        "Enable health bars and distance readouts; turn off portrait spam.",
+        "Add drop and loot ESP only after boxes feel natural.",
+        "Pair with [ESP wallhack setup](/blog/mw4-esp-wallhack-setup/) for Ranked translation.",
+        "Test stream-proof mode with a 30-second OBS recording."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Radar and rotations"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Keep mini-radar on for third-part calls.",
+        "Practice rotating on zone with radar dots, not tunnel vision.",
+        "Disable cluttered loot timers until zone clears feel clean.",
+        "Supports use radar to call rotates; fraggers use it to avoid stacked fights.",
+        "See [radar hack guide](/blog/mw4-radar-hack-guide/) for FOV caps."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Training instance targets"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Fill a bot lobby for semi-realistic team fights.",
+        "Practice one class profile at a time—staff, then bow, then gun.",
+        "Kick extra bots so only the targets you need remain.",
+        "Private Training Warzone are the safest place to test [Weapon aimbot guide](/blog/mw4-aimbot-combat-guide/) before Ranked.",
+        "Never first-session a new preset in Ranked on patch day."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Practice vs private cheats"
+    },
+    {
+      "type": "p",
+      "text": "Training drills stop at the lobby boundary. Ranked on PC needs external tools with Ricochet-aware updates. Explore [Lite](/products/mw4-cheats/), [Pro](/products/mw4-cheats/), and [Elite](/products/mw4-cheats/elite/) at buymw4cheats.com."
+    },
+    {
+      "type": "cta",
+      "title": "Ready for Ranked tools?",
+      "text": "Practice in Training; apply aimbot and ESP in Ranked with private modern warfare cheats.",
+      "href": "/go/mw4/"
+    },
+    {
+      "type": "p",
+      "text": "Modern Warfare Cheats at buymw4cheats.com sells Modern Warfare cheats for Windows PC Multiplayer and Warzone. Check status before you queue after a patch."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Static Astro site — do not auto-add @astrojs/cloudflare (keeps output in dist/).
+name = "buymw4cheats-net"
+compatibility_date = "2025-10-11"
+
+# Runs before `wrangler deploy` (Workers Builds often only set the deploy command).
+[build]
+command = "npm ci && npm run build"
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
