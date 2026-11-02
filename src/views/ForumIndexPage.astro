@@ -32,8 +32,8 @@ const shell = getForumShell(locale);
 const localizedPosts = forumPosts.map((post) => localizeForumPost(locale, post));
 const forumPath = L('/forum/');
 const breadcrumbs = [
-  { name: 'Home', path: L('/') },
-  { name: t.nav.find((n) => n.href === '/forum/')?.label ?? 'Forum', path: forumPath },
+  { name: t.ui.breadcrumbHome, path: L('/') },
+  { name: 'Community forum hub', path: forumPath },
 ];
 const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
 const sourceTimestamp = (path?: string) => {
@@ -80,7 +80,7 @@ const localizeHref = (href?: string) => {
         </div>
         <a class="forum-create" href={L('/blog/')}>
           <Icon name="messageCircle" size={17} />
-          {t.blog.viewAll}
+          Browse setup guides
         </a>
       </header>
 
@@ -158,17 +158,18 @@ const localizeHref = (href?: string) => {
                     {
                       post.sourceTitle && (
                         <p class="forum-source">
-                          {shell.fromTheGuide} <a href={localizeHref(post.sourcePath)}>{post.sourceTitle}</a>
+                          {shell.fromTheGuide}{' '}
+                          <a href={localizeHref(post.sourcePath)}>Guide: {post.sourceTitle}</a>
                         </p>
                       )
                     }
                     <div class="forum-post-actions">
                       {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                      <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount}
+                      <a href={`${forumPostPath(post.slug, locale)}#comments`}>
+                        <Icon name="messageCircle" size={15} /> {post.commentsCount} replies · {post.slug}
                       </a>
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="arrowRight" size={15} /> {shell.readDiscussion}
+                        <Icon name="arrowRight" size={15} /> Open thread: {post.title}
                       </a>
                     </div>
                   </div>
@@ -194,19 +195,19 @@ const localizeHref = (href?: string) => {
                   <img
                     src={BRAND_ICON}
                     srcset={`${BRAND_ICON} 1x, ${BRAND_ICON_2X} 2x`}
-                    alt=""
+                    alt="Forum – favicon"
                     width={34}
                     height={34}
                   />
                 </span>
-                <h2>{shell.communityTitle}</h2>
+                <h2>Forum: Modern Warfare Cheats</h2>
               </div>
               <p>{shell.communityLead}</p>
               <div class="forum-stats">
                 <span><b>{forumPosts.length}</b> {shell.guideDiscussionsLabel}</span>
                 <span><b>{forumCategories.length}</b> {shell.topics}</span>
               </div>
-              <a class="forum-join" href={L('/blog/')}>{t.blog.viewAll}</a>
+              <a class="forum-join" href={L('/blog/')}>Open the Modern Warfare guide library</a>
             </div>
           </section>
           <section class="forum-side-card" id="communities">

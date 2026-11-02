@@ -13,15 +13,15 @@ export interface PageSeoEntry {
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Buy MW4 Cheats | ESP, Aimbot & Radar — buymw4cheats.com',
-    h1: 'Buy MW4 Cheats — ESP, Aimbot & Radar',
+    h1: 'Buy MW4 Cheats on buymw4cheats.com — ESP, Aimbot & Radar for PC',
     description:
-      'Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer. Built for Multiplayer, Warzone and Ranked Play.',
+      'Mw4 Cheats: Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer.',
   },
   '/products/mw4-cheats/': {
-    title: 'MW4 Hacks | Compare Lite, Pro & Elite Tiers',
-    h1: 'MW4 Hacks — Compare Lite, Pro & Elite',
+    title: 'Mw4 – Compare Lite, Pro & Elite Tiers | buymw4cheats.com',
+    h1: 'MW4 Hacks — Compare Lite, Pro & Elite tiers',
     description:
-      'MW4 Elite cheats, HWID spoofer, UGC recovery and Loadout Changer for Multiplayer, Warzone and Ranked on PC.',
+      'MW4 Elite cheats, HWID spoofer, UGC recovery and Loadout Changer for Multiplayer, Warzone and Ranked on PC. MW4 Hacks — Compare Lite, Pro & Elite Elite.',
   },
   '/products/mw4-cheats/elite/': {
     title: 'Elite Modern Warfare Cheats | ESP, Aimbot & Loot Assist',
@@ -36,20 +36,20 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'HWID Spoofer after hardware bans, UGC for Activision and Ricochet appeals, and local Loadout Changer / Unlock All tool.',
   },
   '/blog/': {
-    title: 'Modern Warfare Guides & Ricochet Patch Notes',
-    h1: 'Modern Warfare Guides & Patch Notes',
+    title: 'Modern Warfare – Ranked presets | buymw4cheats.com',
+    h1: 'Modern Warfare Guides, Ricochet & Patch Notes',
     description:
-      'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks.',
+      'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks for PC players.',
   },
   '/forum/': {
-    title: 'MW4 Hacks Community Forum',
+    title: 'Forum – Talk Modern Warfare cheat setup | buymw4cheats.com',
     h1: 'MW4 Hacks Community Forum',
     description:
-      'Talk Modern Warfare cheat setup, ESP and weapon configs, Ricochet status and product questions.',
+      'Forum: Talk Modern Warfare cheat setup, ESP and weapon configs, Ricochet status and product questions. Forum MW4 Hacks Community Forum Talk Modern Warfare.',
   },
   '/faq/': {
-    title: 'MW4 Cheat FAQ | ESP, Aimbot & Loader Setup',
-    h1: 'MW4 Cheat FAQ',
+    title: 'Cheat – ESP, Aimbot & Loader Setup | buymw4cheats.com',
+    h1: 'Cheat: Common questions on aimbot, loader & setup',
     description:
       'Answers on Modern Warfare cheat tiers, ESP wallhack, minimap radar, aimbot, HWID spoofer, Loadout Changer and loader setup.',
   },

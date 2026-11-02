@@ -8,10 +8,15 @@ import Icon from './icons/Icon.astro';
 import { Button } from '@/components/starwind/button';
 import { Badge } from '@/components/starwind/badge';
 
+interface Props {
+  /** When set, replaces the default two-line hero heading (single page h1). */
+  pageH1?: string;
+}
+
 const locale = localeFromPathname(Astro.url.pathname);
 const t = getTranslations(locale);
 const h = t.hero;
-
+const pageH1 = Astro.props.pageH1;
 
 const heroMarqueePills = [
   ...heroStatusPills,
@@ -35,8 +40,16 @@ const heroMarqueePills = [
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div class="w-full max-w-xl space-y-6 text-left md:space-y-7 lg:max-w-2xl">
         <h1 id="hero-title" class="text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[1.75rem] lg:text-4xl">
-          <span class="block text-foreground">{h.titleLine1}</span>
-          <span class="block text-primary">{h.titleLine2}</span>
+          {
+            pageH1 ? (
+              <span class="block text-foreground">{pageH1}</span>
+            ) : (
+              <>
+                <span class="block text-foreground">{h.titleLine1}</span>
+                <span class="block text-primary">{h.titleLine2}</span>
+              </>
+            )
+          }
         </h1>
 
         <p class="max-w-xl text-sm leading-relaxed text-neutral-800 dark:text-neutral-400 md:text-base">

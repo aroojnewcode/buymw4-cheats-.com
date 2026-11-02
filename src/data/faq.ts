@@ -29,10 +29,14 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const elite = link('MW4 Elite', productPath('elite'));
-const lite = link('Lite tier (ESP wallhack & ESP)', ROUTES.products);
-const pro = link('Pro tier (scripts included)', ROUTES.products);
-const productsHub = link('Modern Warfare products', ROUTES.products);
+const eliteHref = productPath('elite');
+const liteHref = ROUTES.products;
+const proHref = ROUTES.products;
+const productsHubHref = ROUTES.products;
+
+function faqAnchor(label: string, href: string): string {
+  return link(label, href);
+}
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
 const ugc = link('UGC', productPath('ugc'));
 const skin = link('Loadout Changer', productPath('unlock-all'));
@@ -80,14 +84,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `${productsHub} lists cheat tiers, ${hwid}, ${ugc}, and ${skin} with feature lists and checkout via our partner.`,
+    a: `${faqAnchor('Products hub 1', productsHubHref)} lists cheat tiers, ${hwid}, ${ugc}, and ${skin} with feature lists and checkout via our partner.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
     q: 'What is Modern Warfare ESP wallhack / ESP?',
-    a: `ESP wallhack and player ESP show enemy positions, drops, loot and camps through contested Ranked terrain. ${lite} covers awareness overlays. ${pro} and ${elite} add script modules on top.`,
+    a: `ESP wallhack and player ESP show enemy positions, drops, loot and camps through contested Ranked terrain. ${faqAnchor('Lite tier 5', liteHref)} covers awareness overlays. ${faqAnchor('Pro tier 18', proHref)} and ${faqAnchor('Elite tier 33', eliteHref)} add script modules on top.`,
     scopes: ['lite', 'pro', 'elite'],
   },
   {
@@ -95,14 +99,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What is the difference between ESP wallhack and aimbot?',
-    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Aim smoothing and Target lock are aimbot on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
+    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Aim smoothing and Target lock are aimbot on ${faqAnchor('Pro tier 19', proHref)} and ${faqAnchor('Elite tier 34', eliteHref)}. You can run awareness-only on ${faqAnchor('Lite tier 6', liteHref)}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which tier do I need for ESP wallhack only?',
-    a: `${lite} is awareness only: player ESP, drop locator, loot timers and radar hack. ${pro} adds aimbot. ${elite} adds bots, kill steal and Loadout Changer.`,
+    a: `${faqAnchor('Lite tier 7', liteHref)} is awareness only: player ESP, drop locator, loot timers and radar hack. ${faqAnchor('Pro tier 20', proHref)} adds aimbot. ${faqAnchor('Elite tier 35', eliteHref)} adds bots, kill steal and Loadout Changer.`,
     scopes: ['lite'],
   },
   {
@@ -110,7 +114,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
     q: 'Which tier includes Aimbot?',
-    a: `${pro} ships Aimbot, Aim smoothing, Target lock and Hotkey macros. ${elite} includes everything in Pro plus Loot Assist and Auto finish. ${lite} has no skill automation.`,
+    a: `${faqAnchor('Pro tier 21', proHref)} ships Aimbot, Aim smoothing, Target lock and Hotkey macros. ${faqAnchor('Elite tier 36', eliteHref)} includes everything in Pro plus Loot Assist and Auto finish. ${faqAnchor('Lite tier 8', liteHref)} has no skill automation.`,
     scopes: ['pro'],
   },
   {
@@ -118,7 +122,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → ${lite}. Ranked gunfights with aimbot → ${pro}. Full bot suite and priority patches → ${elite}. Compare on each cheat page or the ${faqPage}.`,
+    a: `Map awareness only → ${faqAnchor('Lite tier 9', liteHref)}. Ranked gunfights with aimbot → ${faqAnchor('Pro tier 22', proHref)}. Full bot suite and priority patches → ${faqAnchor('Elite tier 37', eliteHref)}. Compare on each cheat page or the ${faqPage}.`,
   },
   {
     id: 'elite-slots',
@@ -133,7 +137,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Can OBS capture my overlay?',
-    a: `Stream-proof mode on ${lite}, ${pro} and ${elite} hides overlays from OBS and Discord share. Test a local recording before going live.`,
+    a: `Stream-proof mode on ${faqAnchor('Lite tier 10', liteHref)}, ${faqAnchor('Pro tier 23', proHref)} and ${faqAnchor('Elite tier 38', eliteHref)} hides overlays from OBS and Discord share. Test a local recording before going live.`,
   },
   {
     id: 'undetected',
@@ -170,7 +174,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqSkinChanger',
     q: 'Does Loadout Changer modify my loadout menu?',
-    a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${elite}; available standalone for cosmetic preview only.`,
+    a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${faqAnchor('Elite tier 39', eliteHref)}; available standalone for cosmetic preview only.`,
     scopes: ['unlock-all'],
   },
   {
@@ -178,21 +182,21 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqExternalLoader',
     q: 'Is the loader injected into the Activision folder?',
-    a: `Modern Warfare Cheats runs external with cloud config sync—no files injected into the Modern Warfare directory. anti-cheat risk still applies. See ${productsHub}.`,
+    a: `Modern Warfare Cheats runs external with cloud config sync—no files injected into the Modern Warfare directory. anti-cheat risk still applies. See ${faqAnchor('Products hub 2', productsHubHref)}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
     q: 'Are blog cheat codes the same as Ranked cheats?',
-    a: `No. Blog articles about Activision console commands apply only in custom lobbies with cheats enabled. Ranked modern warfare cheats are separate products—see ${lite}, ${pro} and ${elite}.`,
+    a: `No. Blog articles about Activision console commands apply only in custom lobbies with cheats enabled. Ranked modern warfare cheats are separate products—see ${faqAnchor('Lite tier 11', liteHref)}, ${faqAnchor('Pro tier 24', proHref)} and ${faqAnchor('Elite tier 40', eliteHref)}.`,
   },
   {
     id: 'blog-setup',
     topic: 'blog',
     icon: 'faqBlogSetup',
     q: 'Where do blog setup guides point for purchase?',
-    a: `Guides link to tier pages and ${productsHub}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
+    a: `Guides link to tier pages and ${faqAnchor('Products hub 3', productsHubHref)}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
   },
   {
     id: 'compare-plans',
@@ -206,7 +210,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, drops, loot—and will not touch skill automation. If you keep enabling combo aimbot, buy ${pro} instead.`,
+    a: `Players who only want map awareness—ESP, drops, loot—and will not touch skill automation. If you keep enabling combo aimbot, buy ${faqAnchor('Pro tier 25', proHref)} instead.`,
     scopes: ['lite'],
   },
   {
@@ -244,14 +248,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqZoomRanked',
     q: 'Do tiers work in Multiplayer and Ranked?',
-    a: `Yes—${lite}, ${pro} and ${elite} include Warzone and Ranked presets in the portal. Tune distance caps and script delay before your first queue.`,
+    a: `Yes—${faqAnchor('Lite tier 12', liteHref)}, ${faqAnchor('Pro tier 26', proHref)} and ${faqAnchor('Elite tier 41', eliteHref)} include Warzone and Ranked presets in the portal. Tune distance caps and script delay before your first queue.`,
   },
   {
     id: 'zoom-hack',
     topic: 'esp',
     icon: 'faqZoomHack',
     q: 'Which tier includes radar hack?',
-    a: `Radar ships on ${lite} and carries through ${pro} and ${elite}. Mini-radar helps zone awareness without guessing rotates.`,
+    a: `Radar ships on ${faqAnchor('Lite tier 13', liteHref)} and carries through ${faqAnchor('Pro tier 27', proHref)} and ${faqAnchor('Elite tier 42', eliteHref)}. Mini-radar helps zone awareness without guessing rotates.`,
     scopes: ['lite'],
   },
   {
@@ -259,7 +263,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqAutoFarm',
     q: 'Which tier includes Loot Assist?',
-    a: `Loot Assist, Zombies Assist AI and Auto loadout manager are ${elite} only. ${pro} covers combat aimbot without bot farming.`,
+    a: `Loot Assist, Zombies Assist AI and Auto loadout manager are ${faqAnchor('Elite tier 43', eliteHref)} only. ${faqAnchor('Pro tier 28', proHref)} covers combat aimbot without bot farming.`,
     scopes: ['elite'],
   },
   {
@@ -360,7 +364,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which tier matches this guide?',
-      a: `Awareness guides → ${lite}. Script and combo guides → ${pro}. Bot and kill-steal topics → ${elite}.`,
+      a: `Awareness guides → ${faqAnchor('Lite tier 14', liteHref)}. Script and combo guides → ${faqAnchor('Pro tier 29', proHref)}. Bot and kill-steal topics → ${faqAnchor('Elite tier 44', eliteHref)}.`,
     },
     {
       id: 'blog-guide-status',
@@ -403,7 +407,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to ${lite}, ${pro}, ${elite} and ${productsHub}. Feature lists on product pages are authoritative for checkout.`,
+    a: `Articles explain workflows and link to ${faqAnchor('Lite tier 15', liteHref)}, ${faqAnchor('Pro tier 30', proHref)}, ${faqAnchor('Elite tier 45', eliteHref)} and ${faqAnchor('Products hub 4', productsHubHref)}. Feature lists on product pages are authoritative for checkout.`,
   },
   {
     id: 'blog-default-2',
@@ -431,7 +435,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which tier covers ESP wallhack from this article?',
-      a: `${lite} includes player ESP, drop locator and loot timers. ${pro} adds combat aimbot on the same overlay stack.`,
+      a: `${faqAnchor('Lite tier 16', liteHref)} includes player ESP, drop locator and loot timers. ${faqAnchor('Pro tier 31', proHref)} adds combat aimbot on the same overlay stack.`,
     });
   }
   if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
@@ -440,7 +444,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
       q: 'Which tier includes the aimbot in this article?',
-      a: `${pro} and ${elite} ship Aimbot and related modules. ${lite} is ESP wallhack only.`,
+      a: `${faqAnchor('Pro tier 32', proHref)} and ${faqAnchor('Elite tier 46', eliteHref)} ship Aimbot and related modules. ${faqAnchor('Lite tier 17', liteHref)} is ESP wallhack only.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('ban') || slug.includes('eac')) {

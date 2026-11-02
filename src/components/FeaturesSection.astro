@@ -1,5 +1,5 @@
 ---
-import { getTranslations, localeFromPathname } from '../i18n';
+import { getTranslations, localeFromPathname, stripLocalePrefix } from '../i18n';
 const locale = localeFromPathname(Astro.url.pathname);
 const t = getTranslations(locale);
 import { featureIcons } from '../data/sectionIcons';
@@ -8,6 +8,8 @@ import Icon from './icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
 
 const s = t.features;
+const bare = stripLocalePrefix(Astro.url.pathname);
+const sectionTitle = bare === '/' ? 'Mw4 Cheats: Modern Warfare Cheats' : s.title;
 
 function isScriptsHero(title: string) {
   return title === 'Scripts' || title === 'Aimbot';
@@ -16,7 +18,7 @@ function isScriptsHero(title: string) {
 
 <section id="features" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="features-title">
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="features-title" />
+    <SectionHeader eyebrow={s.eyebrow} title={sectionTitle} desc={s.subtitle} titleId="features-title" as="h2" />
 
     <div
       class="features-bento mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[repeat(6,auto)] lg:items-stretch lg:gap-4"

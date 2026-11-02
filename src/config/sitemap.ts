@@ -10,7 +10,7 @@ const blogLastmod = new Map(
 );
 
 function pathnameFromUrl(url: string): string {
-  const path = new URL(url).pathname;
+  const path = new URL(url).pathname.toLowerCase();
   return path.endsWith('/') ? path : `${path}/`;
 }
 

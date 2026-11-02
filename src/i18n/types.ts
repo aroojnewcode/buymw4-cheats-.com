@@ -261,5 +261,6 @@ export interface Translations {
     menuClose: string;
     themeLight: string;
     themeDark: string;
+    breadcrumbHome: string;
   };
 }

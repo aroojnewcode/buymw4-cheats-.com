@@ -1,7 +1,7 @@
 ---
 import '../../../styles/product-cheat-page.css';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { t } from '../../../i18n';
+import { t, getTranslations } from '../../../i18n';
 import { productHub, productPages } from '../../../data/products';
 import { cheatTierIcons, productCategoryIcons } from '../../../data/sectionIcons';
 import { resolvePageSeo } from '../../../config/seo';
@@ -11,9 +11,10 @@ import CatalogCard from '../../../components/CatalogCard.astro';
 import { productPath } from '../../../utils/path';
 
 const seo = resolvePageSeo('/products/mw4-cheats/');
+const tNav = getTranslations('en');
 const breadcrumbs = [
-  { name: 'Home', path: '/' },
-  { name: 'Products', path: productHub.path },
+  { name: tNav.ui.breadcrumbHome, path: '/' },
+  { name: 'MW4 product hub', path: productHub.path },
 ];
 
 function cardIcon(product: (typeof productPages)[number]) {
@@ -58,7 +59,9 @@ function cardLabel(product: (typeof productPages)[number]) {
         <p class="text-lg text-muted-foreground">{t.products.subtitle}</p>
       </div>
 
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <h2 class="mt-10 text-2xl font-bold tracking-tight md:text-3xl">Mw4: Modern Warfare Cheats</h2>
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {productPages.map((product) => (
           <CatalogCard
             label={cardLabel(product)}

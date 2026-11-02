@@ -13,7 +13,7 @@ const locale = 'en' as const;
 const t = getTranslations(locale);
 const seo = resolvePageSeo('/faq/', locale);
 const breadcrumbs = [
-  { name: 'Home', path: '/' },
+  { name: t.ui.breadcrumbHome, path: '/' },
   { name: t.faq.eyebrow, path: '/faq/' },
 ];
 
@@ -46,7 +46,7 @@ const faqs = localizeFaqItems(locale, getAllFaqs());
       <div class="mt-6">
         <SectionHeader
           eyebrow={t.faq.eyebrow}
-          title={t.faq.title}
+          title={seo.h1}
           desc={t.faq.subtitle}
           titleId="faq-page-title"
         />

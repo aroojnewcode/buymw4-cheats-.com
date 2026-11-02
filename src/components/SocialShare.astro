@@ -1,0 +1,50 @@
+---
+interface Props {
+  url: string;
+  title: string;
+  class?: string;
+}
+
+const { url, title, class: className } = Astro.props;
+const shareUrl = encodeURIComponent(url);
+const shareTitle = encodeURIComponent(title);
+---
+
+<nav
+  class:list={['social-share flex flex-wrap items-center gap-2 py-6', className]}
+  aria-label="Share this page"
+>
+  <span class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Share</span>
+  <a
+    class="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+    href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    X
+  </a>
+  <a
+    class="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+    href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Facebook
+  </a>
+  <a
+    class="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+    href={`https://t.me/share/url?url=${shareUrl}&text=${shareTitle}`}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Telegram
+  </a>
+  <a
+    class="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+    href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Reddit
+  </a>
+</nav>

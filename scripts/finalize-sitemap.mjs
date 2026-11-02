@@ -73,7 +73,7 @@ function normalizeUrl(loc) {
   url.hostname = 'buymw4cheats.com';
   url.hash = '';
   url.search = '';
-  let pathname = url.pathname;
+  let pathname = url.pathname.toLowerCase();
   if (!pathname.endsWith('/')) pathname += '/';
   if (pathname.includes('/404') || pathname.startsWith('/go/')) return null;
   return `${SITE}${pathname}`;
@@ -227,28 +227,37 @@ const localeFiles = [
   { key: 'fr', name: 'sitemap-fr.xml' },
 ];
 
-/** @type {{ name: string, lastmod: string, count: number }[]} */
-const written = [];
-
-// Language sitemaps first (primary for international SEO / GSC).
+const localeWritten = [];
+// Language sitemaps (each URL appears in exactly one locale file — index lists these only).
 for (const child of localeFiles) {
   const result = writeUrlset(byLocale[child.key], child.name);
-  if (result) written.push(result);
+  if (result) localeWritten.push(result);
 }
 
-// Content-type sitemaps (secondary discovery).
+/** @type {{ name: string, lastmod: string, count: number }[]} */
+const written = [...localeWritten];
+
+// Content-type urlsets (optional; not referenced in sitemap index to avoid duplicate <loc> across files).
 for (const child of contentFiles) {
-  const result = writeUrlset(byContent[child.key], child.name);
-  if (result) written.push(result);
+  writeUrlset(byContent[child.key], child.name);
 }
 
-const indexXml = renderIndex(written);
+const indexXml = renderIndex(localeWritten);
 // GSC entry point: /sitemap.xml is the index (also mirrored as sitemap-index.xml).
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 
 // Keep a combined urlset for IndexNow + tools that expect one file of <url> entries.
-const allUrls = contentFiles.flatMap((c) => byContent[c.key]);
+const globalSeen = new Set();
+const allUrls = [];
+for (const code of ['en', ...LOCALE_CODES]) {
+  for (const entry of byLocale[code] ?? []) {
+    if (globalSeen.has(entry.loc)) continue;
+    globalSeen.add(entry.loc);
+    allUrls.push(entry);
+  }
+}
+allUrls.sort((a, b) => a.loc.localeCompare(b.loc));
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), renderUrlset(allUrls), 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-all.xml'), renderUrlset(allUrls), 'utf8');
 
@@ -265,13 +274,14 @@ for (const child of localeFiles) {
 }
 
 console.log(`Sitemap finalized: ${total} URLs`);
-console.log('Language sitemaps:');
-for (const w of written.filter((x) => localeFiles.some((c) => c.name === x.name))) {
+console.log('Language sitemaps (in index):');
+for (const w of localeWritten) {
   console.log(`  ${SITE}/${w.name} (${w.count})`);
 }
-console.log('Content sitemaps:');
-for (const w of written.filter((x) => contentFiles.some((c) => c.name === x.name))) {
-  console.log(`  ${SITE}/${w.name} (${w.count})`);
+console.log('Content sitemaps (not in index):');
+for (const child of contentFiles) {
+  const count = byContent[child.key].length;
+  if (count) console.log(`  ${SITE}/${child.name} (${count})`);
 }
 console.log('  sitemap.xml / sitemap-index.xml → index');
 console.log('  sitemap-all.xml → combined urlset');
