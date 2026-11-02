@@ -19,7 +19,7 @@ Run from `D:\buymw4cheats-net` with `TEMP` / `npm_config_cache` on D: if C: is l
 
 Static output lives in `dist/` (gitignored). Workers Builds must produce it before upload.
 
-- **Deploy command** (dashboard): `npx wrangler deploy` — `wrangler.toml` runs `npm ci && npm run build` first via `[build]`.
+- **Deploy command** (dashboard): `npx wrangler deploy` — `wrangler.toml` runs `npm run build` first via `[build]` (Workers Builds already runs `npm ci`).
 - **Alternative**: Build command `npm ci && npm run build`, deploy command `npx wrangler deploy` (no double build if you remove the `[build]` block).
 - **Node**: `.node-version` is `22.12.0` (matches `package.json` engines).
 - Local one-shot: `npm run deploy`.
