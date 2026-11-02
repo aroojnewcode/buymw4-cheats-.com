@@ -4,7 +4,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/icons/Icon.astro';
 import { forumPosts, getForumPost } from '../data/forum';
-import { pageTitle } from '../config/seo';
 import { breadcrumbSchema, discussionForumPostingSchema } from '../utils/schema';
 import {
   getTranslations,
@@ -12,6 +11,11 @@ import {
   type Locale,
 } from '../i18n';
 import { forumPostPath, normalizeInternalPath } from '../utils/path';
+import {
+  getForumShell,
+  localizeForumCategory,
+  localizeForumPost,
+} from '../i18n/forum-i18n';
 
 interface Props {
   slug: string;
@@ -21,21 +25,26 @@ interface Props {
 const { slug, locale } = Astro.props;
 const t = getTranslations(locale);
 const L = (path: string) => localizePath(locale, path);
-const post = getForumPost(slug);
-if (!post) return Astro.redirect(L('/forum/'));
+const shell = getForumShell(locale);
+const rawPost = getForumPost(slug);
+if (!rawPost) return Astro.redirect(L('/forum/'));
+const post = localizeForumPost(locale, rawPost);
 
 const path = forumPostPath(post.slug, locale);
 const forumLabel = t.nav.find((n) => n.href === '/forum/')?.label ?? 'Forum';
+const categoryLabel = localizeForumCategory(locale, post.category);
 const breadcrumbs = [
-  { name: 'Home', path: L('/') },
+  { name: t.nav.find((n) => n.href === '/')?.label ?? 'Home', path: L('/') },
   { name: forumLabel, path: L('/forum/') },
-  { name: post.category, path: L('/forum/') },
+  { name: categoryLabel, path: L('/forum/') },
   { name: post.title, path },
 ];
 const relatedPosts = [
   ...forumPosts.filter((item) => item.slug !== post.slug && item.category === post.category),
   ...forumPosts.filter((item) => item.slug !== post.slug && item.category !== post.category),
-].slice(0, 3);
+]
+  .map((item) => localizeForumPost(locale, item))
+  .slice(0, 3);
 
 const localizeHref = (href?: string) => {
   if (!href) return L('/blog/');
@@ -46,7 +55,7 @@ const localizeHref = (href?: string) => {
 
 <BaseLayout
   locale={locale}
-  title={pageTitle(post.title, undefined, locale)}
+  title={post.title}
   description={post.excerpt}
   jsonLd={[
     discussionForumPostingSchema({
@@ -65,12 +74,12 @@ const localizeHref = (href?: string) => {
       <div class="forum-layout forum-layout--detail">
         <main class="forum-main">
           <article class="forum-detail-card" data-forum-vote data-post-slug={post.slug} data-upvotes={post.upvotes}>
-            <div class="forum-vote forum-vote--detail" aria-label="Discussion voting">
-              <button class="forum-vote__up" type="button" data-vote-up aria-label="Upvote this discussion">
+            <div class="forum-vote forum-vote--detail" aria-label={shell.discussionVotingAria}>
+              <button class="forum-vote__up" type="button" data-vote-up aria-label={shell.upvoteAria}>
                 <Icon name="chevronDown" size={17} />
               </button>
               <strong data-vote-count>{post.upvotes}</strong>
-              <button type="button" disabled aria-label="Downvoting is unavailable">
+              <button type="button" disabled aria-label={shell.downvoteUnavailableAria}>
                 <Icon name="chevronDown" size={17} />
               </button>
             </div>
@@ -83,8 +92,8 @@ const localizeHref = (href?: string) => {
                   d/{post.category.toLowerCase().replaceAll(' ', '')}
                 </a>
                 <span>·</span>
-                <span><Icon name="userRound" size={13} /> Modern Warfare Cheats guide team</span>
-                <span>Guide-based Q&amp;A</span>
+                <span><Icon name="userRound" size={13} /> {shell.guideTeam}</span>
+                <span>{shell.guideBasedQa}</span>
               </div>
               <h1>{post.title}</h1>
               {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
@@ -92,13 +101,13 @@ const localizeHref = (href?: string) => {
               {
                 post.sourceTitle && (
                   <p class="forum-source forum-source--detail">
-                    Based on: <a href={localizeHref(post.sourcePath)}>{post.sourceTitle}</a>
+                    {shell.basedOn} <a href={localizeHref(post.sourcePath)}>{post.sourceTitle}</a>
                   </p>
                 )
               }
               <div class="forum-post-actions forum-post-actions--detail">
                 <a href="#comments">
-                  <Icon name="messageCircle" size={16} /> {post.commentsCount} guide replies
+                  <Icon name="messageCircle" size={16} /> {post.commentsCount} {shell.guideReplies}
                 </a>
                 <a href={localizeHref(post.sourcePath)}>
                   <Icon name="navBlog" size={15} /> {t.blog.read}
@@ -106,13 +115,15 @@ const localizeHref = (href?: string) => {
               </div>
               <div class="forum-login-prompt">
                 <span class="forum-user-dot">i</span>
-                <span>Preview discussion</span>
-                <span>Posting and voting are unavailable here</span>
+                <span>{shell.previewDiscussion}</span>
+                <span>{shell.postingUnavailable}</span>
               </div>
               <section class="forum-comments" id="comments" aria-labelledby="comments-title">
                 <div class="forum-comments__heading">
-                  <h2 id="comments-title">Guide replies <span>{post.commentsCount}</span></h2>
-                  <span>From the source article</span>
+                  <h2 id="comments-title">
+                    {shell.guideRepliesHeading} <span>{post.commentsCount}</span>
+                  </h2>
+                  <span>{shell.fromSourceArticle}</span>
                 </div>
                 {
                   post.comments.map((comment) => (
@@ -124,7 +135,7 @@ const localizeHref = (href?: string) => {
                         <span class="forum-comment__line"></span>
                       </div>
                       <div class="forum-comment__body">
-                        <div class="forum-comment__meta"><b>Guide answer</b></div>
+                        <div class="forum-comment__meta"><b>{shell.guideAnswer}</b></div>
                         <p>{comment.body}</p>
                         {comment.replies?.map((reply) => (
                           <div class="forum-comment forum-comment--reply">
@@ -157,27 +168,27 @@ const localizeHref = (href?: string) => {
                 <span class={`forum-community-avatar tone-${post.categoryTone}`}>d</span>
                 <h2>d/{post.category.toLowerCase().replaceAll(' ', '')}</h2>
               </div>
-              <p>Browse answers summarized from Modern Warfare Cheats guides.</p>
+              <p>{shell.sidebarBrowseAnswers}</p>
               <div class="forum-stats">
-                <span><b>{forumPosts.length}</b> guide discussions</span>
+                <span><b>{forumPosts.length}</b> {shell.guideDiscussionsLabel}</span>
                 <span>
-                  <b>{forumPosts.filter((item) => item.category === post.category).length}</b> in this topic
+                  <b>{forumPosts.filter((item) => item.category === post.category).length}</b> {shell.inThisTopic}
                 </span>
               </div>
               <a class="forum-join" href={L('/forum/')}>{forumLabel}</a>
             </div>
           </section>
           <section class="forum-side-card forum-related-card" aria-labelledby="forum-related-title">
-            <h2 class="forum-side-heading" id="forum-related-title">More discussions</h2>
+            <h2 class="forum-side-heading" id="forum-related-title">{shell.moreDiscussions}</h2>
             <ul class="forum-related-list">
               {
                 relatedPosts.map((item) => (
                   <li>
                     <a href={forumPostPath(item.slug, locale)}>
-                      <span class="forum-related-list__category">{item.category}</span>
+                      <span class="forum-related-list__category">{localizeForumCategory(locale, item.category)}</span>
                       <b>{item.title}</b>
                       <span class="forum-related-list__meta">
-                        {item.commentsCount} guide answers <Icon name="arrowRight" size={14} />
+                        {item.commentsCount} {shell.guideAnswers} <Icon name="arrowRight" size={14} />
                       </span>
                     </a>
                   </li>
@@ -185,7 +196,7 @@ const localizeHref = (href?: string) => {
               }
             </ul>
             <a class="forum-related-card__all" href={L('/forum/')}>
-              View all discussions <Icon name="arrowRight" size={14} />
+              {shell.viewAllDiscussions} <Icon name="arrowRight" size={14} />
             </a>
           </section>
         </aside>

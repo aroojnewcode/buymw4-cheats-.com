@@ -14,7 +14,7 @@ import {
 } from '../i18n';
 import { forumPostPath, normalizeInternalPath } from '../utils/path';
 import {
-  getForumUi,
+  getForumShell,
   localizeForumCategory,
   localizeForumPost,
 } from '../i18n/forum-i18n';
@@ -27,7 +27,7 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 const L = (path: string) => localizePath(locale, path);
 const seo = resolvePageSeo('/forum/', locale);
-const forumUi = getForumUi(locale);
+const shell = getForumShell(locale);
 const localizedPosts = forumPosts.map((post) => localizeForumPost(locale, post));
 const forumPath = L('/forum/');
 const breadcrumbs = [
@@ -60,12 +60,21 @@ const localizeHref = (href?: string) => {
     breadcrumbSchema(breadcrumbs),
   ]}
 >
-  <section class="forum-page py-8 md:py-12">
+  <section
+    class="forum-page py-8 md:py-12"
+    data-i18n-discussion={shell.discussion}
+    data-i18n-discussions={shell.discussions}
+    data-i18n-showing={shell.showingRange}
+    data-i18n-zero={shell.zeroDiscussions}
+    data-i18n-page={shell.pageAria}
+    data-i18n-guide-label={shell.guideDiscussionsLabel}
+  >
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
       <header class="forum-hero">
         <div>
           <p class="section-header__eyebrow">{t.nav.find((n) => n.href === '/forum/')?.label ?? 'Forum'}</p>
+          <h1 class="forum-hero__title">{seo.h1 ?? seo.title}</h1>
           <p class="forum-hero__lead">{seo.description}</p>
         </div>
         <a class="forum-create" href={L('/blog/')}>
@@ -75,33 +84,35 @@ const localizeHref = (href?: string) => {
       </header>
 
       <div class="forum-layout">
-        <main class="forum-main" aria-label={forumUi.postsAria}>
+        <main class="forum-main" aria-label={shell.postsAria}>
           <div class="forum-toolbar">
-            <div class="forum-sort" role="group" aria-label={forumUi.sortAria}>
-              <button class="is-active" type="button" data-forum-sort="popular" aria-pressed="true">{forumUi.popular}</button>
-              <button type="button" data-forum-sort="latest" aria-pressed="false">{forumUi.latest}</button>
-              <button type="button" data-forum-sort="top" aria-pressed="false">{forumUi.top}</button>
+            <div class="forum-sort" role="group" aria-label={shell.sortAria}>
+              <button class="is-active" type="button" data-forum-sort="popular" aria-pressed="true">{shell.popular}</button>
+              <button type="button" data-forum-sort="latest" aria-pressed="false">{shell.latest}</button>
+              <button type="button" data-forum-sort="top" aria-pressed="false">{shell.top}</button>
             </div>
             <label class="forum-search">
               <Icon name="search" size={16} />
-              <input type="search" placeholder={forumUi.searchPlaceholder} aria-label={forumUi.searchPlaceholder} data-forum-search />
-              <span class="sr-only" data-forum-count>{forumPosts.length} discussions</span>
+              <input type="search" placeholder={shell.searchPlaceholder} aria-label={shell.searchPlaceholder} data-forum-search />
+              <span class="sr-only" data-forum-count>{forumPosts.length} {shell.discussions}</span>
             </label>
           </div>
 
-          <div class="forum-category-filters" role="group" aria-label="Filter discussions by topic">
+          <div class="forum-category-filters" role="group" aria-label={shell.filterByTopicAria}>
             <button type="button" class="is-active" data-forum-filter="all" aria-pressed="true">
-              <Icon name="layers" size={14} /> All topics
+              <Icon name="layers" size={14} /> {shell.allTopics}
             </button>
             {
               forumCategories.map((category) => (
                 <button type="button" data-forum-filter={categoryKey(category.name)} aria-pressed="false">
-                  <Icon name={category.icon} size={14} /> {category.name}
+                  <Icon name={category.icon} size={14} /> {localizeForumCategory(locale, category.name)}
                 </button>
               ))
             }
           </div>
-          <p class="forum-results-count" data-forum-visible-count>{forumPosts.length} guide discussions</p>
+          <p class="forum-results-count" data-forum-visible-count>
+            {forumPosts.length} {shell.guideDiscussionsLabel}
+          </p>
 
           <div class="forum-post-list" aria-live="polite">
             {
@@ -116,12 +127,12 @@ const localizeHref = (href?: string) => {
                   data-published={sourceTimestamp(post.sourcePath)}
                   data-order={index}
                 >
-                  <div class="forum-vote" aria-label="Discussion voting">
-                    <button class="forum-vote__up" type="button" data-vote-up aria-label="Upvote this discussion">
+                  <div class="forum-vote" aria-label={shell.discussionVotingAria}>
+                    <button class="forum-vote__up" type="button" data-vote-up aria-label={shell.upvoteAria}>
                       <Icon name="chevronDown" size={16} />
                     </button>
                     <strong data-vote-count>{post.upvotes}</strong>
-                    <button type="button" disabled aria-label="Downvoting is unavailable">
+                    <button type="button" disabled aria-label={shell.downvoteUnavailableAria}>
                       <Icon name="chevronDown" size={16} />
                     </button>
                   </div>
@@ -135,9 +146,9 @@ const localizeHref = (href?: string) => {
                       </a>
                       <span>·</span>
                       <span>
-                        <Icon name="userRound" size={13} /> Modern Warfare Cheats guide team
+                        <Icon name="userRound" size={13} /> {shell.guideTeam}
                       </span>
-                      <span>Guide-based Q&amp;A</span>
+                      <span>{shell.guideBasedQa}</span>
                     </div>
                     <a class="forum-post-title" href={forumPostPath(post.slug, locale)}>
                       {post.title}
@@ -146,17 +157,17 @@ const localizeHref = (href?: string) => {
                     {
                       post.sourceTitle && (
                         <p class="forum-source">
-                          From the guide: <a href={localizeHref(post.sourcePath)}>{post.sourceTitle}</a>
+                          {shell.fromTheGuide} <a href={localizeHref(post.sourcePath)}>{post.sourceTitle}</a>
                         </p>
                       )
                     }
                     <div class="forum-post-actions">
                       {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="messageCircle" size={15} /> {post.commentsCount} comments
+                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount}
                       </a>
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="arrowRight" size={15} /> Read discussion
+                        <Icon name="arrowRight" size={15} /> {shell.readDiscussion}
                       </a>
                     </div>
                   </div>
@@ -164,11 +175,11 @@ const localizeHref = (href?: string) => {
               ))
             }
           </div>
-          <p class="forum-empty" data-forum-empty hidden>No discussions match. Try another search or topic.</p>
-          <nav class="forum-pagination" aria-label="Discussion pages" data-forum-pagination hidden>
-            <button type="button" data-page-previous aria-label="Previous page">Previous</button>
+          <p class="forum-empty" data-forum-empty hidden>{shell.emptyState}</p>
+          <nav class="forum-pagination" aria-label={shell.paginationAria} data-forum-pagination hidden>
+            <button type="button" data-page-previous aria-label={shell.previousPageAria}>{shell.previous}</button>
             <div class="forum-pagination__pages" data-page-buttons></div>
-            <button type="button" data-page-next aria-label="Next page">Next</button>
+            <button type="button" data-page-next aria-label={shell.nextPageAria}>{shell.next}</button>
             <span class="forum-pagination__status" data-page-status aria-live="polite"></span>
           </nav>
         </main>
@@ -181,18 +192,18 @@ const localizeHref = (href?: string) => {
                 <span class="forum-community-avatar forum-community-avatar--brand">
                   <img src="/logo.svg" alt="" width="34" height="34" />
                 </span>
-                <h2>Modern Warfare Cheats Community</h2>
+                <h2>{shell.communityTitle}</h2>
               </div>
-              <p>A home for Modern Warfare players to trade ideas, learn together, and celebrate the game.</p>
+              <p>{shell.communityLead}</p>
               <div class="forum-stats">
-                <span><b>{forumPosts.length}</b> guide discussions</span>
-                <span><b>{forumCategories.length}</b> topics</span>
+                <span><b>{forumPosts.length}</b> {shell.guideDiscussionsLabel}</span>
+                <span><b>{forumCategories.length}</b> {shell.topics}</span>
               </div>
               <a class="forum-join" href={L('/blog/')}>{t.blog.viewAll}</a>
             </div>
           </section>
           <section class="forum-side-card" id="communities">
-            <h2 class="forum-side-heading">Communities</h2>
+            <h2 class="forum-side-heading">{shell.communitiesHeading}</h2>
             <ul class="forum-community-list">
               {
                 forumCategories.map((category) => (
@@ -202,8 +213,8 @@ const localizeHref = (href?: string) => {
                         <Icon name={category.icon} size={15} />
                       </span>
                       <span>
-                        <b>{category.name}</b>
-                        <small>Browse related Q&amp;A</small>
+                        <b>{localizeForumCategory(locale, category.name)}</b>
+                        <small>{shell.browseRelatedQa}</small>
                       </span>
                       <Icon name="chevronRight" size={15} />
                     </a>
@@ -212,31 +223,37 @@ const localizeHref = (href?: string) => {
               }
             </ul>
             <a class="forum-text-link" href="#communities">
-              Browse all communities <Icon name="arrowRight" size={14} />
+              {shell.browseAllCommunities} <Icon name="arrowRight" size={14} />
             </a>
           </section>
           <section class="forum-side-card forum-rules">
-            <h2 class="forum-side-heading">Community guidelines</h2>
+            <h2 class="forum-side-heading">{shell.communityGuidelinesHeading}</h2>
             <ol>
-              <li>Keep it friendly and constructive</li>
-              <li>Stay on topic and add context</li>
-              <li>Mark spoilers and sensitive content</li>
+              <li>{shell.guidelineFriendly}</li>
+              <li>{shell.guidelineOnTopic}</li>
+              <li>{shell.guidelineSpoilers}</li>
             </ol>
             <a href="#community-guidelines">
-              Read the full guidelines <Icon name="arrowRight" size={14} />
+              {shell.readFullGuidelines} <Icon name="arrowRight" size={14} />
             </a>
           </section>
           <p class="forum-sidebar-foot">
             <a href={L('/about/')}>{t.footer.about}</a> ·{' '}
             <a href={L('/privacy/')}>{t.footer.privacy}</a> ·{' '}
             <a href={L('/terms/')}>{t.footer.terms}</a>
-            <br />© {new Date().getFullYear()} Modern Warfare Cheats Community
+            <br />© {new Date().getFullYear()} {shell.copyrightSuffix}
           </p>
         </aside>
       </div>
     </div>
   </section>
   <script>
+    const pageRoot = document.querySelector('.forum-page');
+    const labelDiscussion = pageRoot?.dataset.i18nDiscussion ?? 'discussion';
+    const labelDiscussions = pageRoot?.dataset.i18nDiscussions ?? 'discussions';
+    const labelShowing = pageRoot?.dataset.i18nShowing ?? 'Showing';
+    const labelZero = pageRoot?.dataset.i18nZero ?? '0 discussions';
+    const labelGuide = pageRoot?.dataset.i18nGuideLabel ?? 'guide discussions';
     const cards = [...document.querySelectorAll('[data-forum-card]')];
     const sortButtons = [...document.querySelectorAll('[data-forum-sort]')];
     const filterButtons = [...document.querySelectorAll('[data-forum-filter]')];
@@ -276,13 +293,19 @@ const localizeHref = (href?: string) => {
         list?.append(card);
       });
 
-      if (countStatus) countStatus.textContent = `${matching.length} ${matching.length === 1 ? 'discussion' : 'discussions'}`;
-      if (visibleCount) visibleCount.textContent = `${matching.length} ${matching.length === 1 ? 'discussion' : 'discussions'}`;
+      if (countStatus) {
+        countStatus.textContent = `${matching.length} ${matching.length === 1 ? labelDiscussion : labelDiscussions}`;
+      }
+      if (visibleCount) {
+        visibleCount.textContent = `${matching.length} ${labelGuide}`;
+      }
       if (emptyState) emptyState.hidden = matching.length > 0;
       if (pagination) pagination.hidden = matching.length <= pageSize;
-      if (pageStatus) pageStatus.textContent = matching.length
-        ? `Showing ${firstVisible + 1}–${Math.min(firstVisible + pageSize, matching.length)} of ${matching.length}`
-        : '0 discussions';
+      if (pageStatus) {
+        pageStatus.textContent = matching.length
+          ? `${labelShowing} ${firstVisible + 1}–${Math.min(firstVisible + pageSize, matching.length)} / ${matching.length}`
+          : labelZero;
+      }
       if (previousButton) previousButton.disabled = currentPage <= 1;
       if (nextButton) nextButton.disabled = currentPage >= pageCount;
       if (pageButtons) {
@@ -291,7 +314,7 @@ const localizeHref = (href?: string) => {
           const page = index + 1;
           button.type = 'button';
           button.textContent = String(page);
-          button.setAttribute('aria-label', `Page ${page}`);
+          button.setAttribute('aria-label', `${labelPage} ${page}`);
           if (page === currentPage) button.setAttribute('aria-current', 'page');
           button.addEventListener('click', () => {
             currentPage = page;
