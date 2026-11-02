@@ -237,10 +237,7 @@ for (const child of localeFiles) {
 /** @type {{ name: string, lastmod: string, count: number }[]} */
 const written = [...localeWritten];
 
-// Content-type urlsets (optional; not referenced in sitemap index to avoid duplicate <loc> across files).
-for (const child of contentFiles) {
-  writeUrlset(byContent[child.key], child.name);
-}
+// Content-type urlsets are not published (would duplicate every <loc> vs locale sitemaps).
 
 const indexXml = renderIndex(localeWritten);
 // GSC entry point: /sitemap.xml is the index (also mirrored as sitemap-index.xml).
@@ -278,10 +275,6 @@ console.log('Language sitemaps (in index):');
 for (const w of localeWritten) {
   console.log(`  ${SITE}/${w.name} (${w.count})`);
 }
-console.log('Content sitemaps (not in index):');
-for (const child of contentFiles) {
-  const count = byContent[child.key].length;
-  if (count) console.log(`  ${SITE}/${child.name} (${count})`);
-}
+console.log('  (content-type urlsets are not published — avoids duplicate <loc> in robots)');
 console.log('  sitemap.xml / sitemap-index.xml → index');
 console.log('  sitemap-all.xml → combined urlset');

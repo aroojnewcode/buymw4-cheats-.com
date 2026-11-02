@@ -19,9 +19,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   },
   '/products/mw4-cheats/': {
     title: 'Mw4 – Compare Lite, Pro & Elite Tiers | buymw4cheats.com',
-    h1: 'MW4 Hacks — Compare Lite, Pro & Elite tiers',
+    h1: 'MW4 Hacks on buymw4cheats.com — Compare Lite, Pro & Elite tiers',
     description:
-      'MW4 Elite cheats, HWID spoofer, UGC recovery and Loadout Changer for Multiplayer, Warzone and Ranked on PC. MW4 Hacks — Compare Lite, Pro & Elite Elite.',
+      'MW4 Elite cheats, HWID spoofer, UGC and Loadout Changer for Warzone and Ranked on PC. Compare Lite, Pro and Elite MW4 hack tiers.',
   },
   '/products/mw4-cheats/elite/': {
     title: 'Elite Modern Warfare Cheats | ESP, Aimbot & Loot Assist',
@@ -37,19 +37,19 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   },
   '/blog/': {
     title: 'Modern Warfare – Ranked presets | buymw4cheats.com',
-    h1: 'Modern Warfare Guides, Ricochet & Patch Notes',
+    h1: 'Modern Warfare ranked presets & guides — buymw4cheats.com Ricochet notes',
     description:
       'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks for PC players.',
   },
   '/forum/': {
     title: 'Forum – Talk Modern Warfare cheat setup | buymw4cheats.com',
-    h1: 'MW4 Hacks Community Forum',
+    h1: 'Forum — Talk Modern Warfare cheat setup at buymw4cheats.com',
     description:
-      'Forum: Talk Modern Warfare cheat setup, ESP and weapon configs, Ricochet status and product questions. Forum MW4 Hacks Community Forum Talk Modern Warfare.',
+      'Forum for Modern Warfare cheat setup, ESP configs, Ricochet status and product questions at buymw4cheats.com.',
   },
   '/faq/': {
     title: 'Cheat – ESP, Aimbot & Loader Setup | buymw4cheats.com',
-    h1: 'Cheat: Common questions on aimbot, loader & setup',
+    h1: 'Cheat FAQ on buymw4cheats.com — aimbot, loader & setup',
     description:
       'Answers on Modern Warfare cheat tiers, ESP wallhack, minimap radar, aimbot, HWID spoofer, Loadout Changer and loader setup.',
   },

@@ -38,9 +38,9 @@ function faqAnchor(label: string, href: string): string {
   return link(label, href);
 }
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
-const ugc = link('UGC', productPath('ugc'));
+const ugcHref = productPath('ugc');
 const skin = link('Loadout Changer', productPath('unlock-all'));
-const faqPage = link('full FAQ', ROUTES.faq);
+const faqPage = link('full FAQ index', ROUTES.faq);
 const blog = link('blog guides', ROUTES.blog);
 
 export const siteFaqs: SiteFaqItem[] = [
@@ -84,7 +84,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `${faqAnchor('Products hub 1', productsHubHref)} lists cheat tiers, ${hwid}, ${ugc}, and ${skin} with feature lists and checkout via our partner.`,
+    a: `${faqAnchor('Products hub 1', productsHubHref)} lists cheat tiers, ${hwid}, ${faqAnchor('UGC recovery product', ugcHref)}, and ${skin} with feature lists and checkout via our partner.`,
   },
   {
     id: 'what-is-esp',
@@ -158,7 +158,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${ugc} instead.`,
+    a: `Use ${hwid} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${faqAnchor('UGC appeals workspace', ugcHref)} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -166,7 +166,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Activision account restrictions and Ricochet bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `${faqAnchor('UGC product overview', ugcHref)} (Unban & Governance Control) is an appeal workspace for Activision account restrictions and Ricochet bans—custom workflows and case tracking, not a guaranteed unban service.`,
     scopes: ['ugc'],
   },
   {
@@ -203,7 +203,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Where do I compare plans side by side?',
-    a: `Each cheat tier page includes a compare table. The ${faqPage} collects product, cheat and blog answers in one place.`,
+    a: `Each cheat tier page includes a compare table. The ${link('complete FAQ answers', ROUTES.faq)} collects product, cheat and blog answers in one place.`,
   },
   {
     id: 'who-lite',
@@ -453,7 +453,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'products',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace HWID or UGC products?',
-      a: `Recovery guides complement ${hwid} and ${ugc}—read product pages for workflow scope and realistic outcomes.`,
+      a: `Recovery guides complement ${hwid} and ${faqAnchor('UGC ban recovery tool', ugcHref)}—read product pages for workflow scope and realistic outcomes.`,
     });
   }
 

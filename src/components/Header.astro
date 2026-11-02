@@ -13,7 +13,6 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/starwind/sheet';
 import Icon from './icons/Icon.astro';
@@ -90,7 +89,7 @@ const nav = t.nav.map((link) => {
             {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
           >
             <Icon name={link.icon} size={16} class="shrink-0" />
-            <span class="whitespace-nowrap">{link.label}</span>
+            <span class="whitespace-nowrap">{link.label} (top nav)</span>
           </a>
         ))}
       </nav>
@@ -109,6 +108,10 @@ const nav = t.nav.map((link) => {
           </div>
         </div>
 
+        <div class="flex items-center gap-1.5 lg:hidden">
+          <LanguageSwitcher locale={locale} compact class="shrink-0" />
+        </div>
+
         <Sheet class="lg:hidden">
           <SheetTrigger
             class="inline-flex size-9 items-center justify-center rounded-lg border border-border/80 bg-background/50 text-foreground transition-colors hover:bg-muted"
@@ -118,9 +121,9 @@ const nav = t.nav.map((link) => {
           </SheetTrigger>
           <SheetContent side="right" class="flex w-[min(100vw-2rem,20rem)] flex-col gap-4">
             <SheetHeader>
-              <SheetTitle>{t.site.name}</SheetTitle>
+              <p class="text-base font-semibold leading-none">{t.site.name}</p>
             </SheetHeader>
-            <nav class="flex flex-col gap-1" aria-label="Mobile">
+            <nav class="flex flex-col gap-1" aria-label="Mobile primary">
               {nav.map((link) => (
                 <a
                   href={link.href}
@@ -129,13 +132,10 @@ const nav = t.nav.map((link) => {
                   {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
                 >
                   <Icon name={link.icon} size={16} />
-                  {link.label}
+                  {link.label} (menu)
                 </a>
               ))}
             </nav>
-            <div class="px-1">
-              <LanguageSwitcher locale={locale} compact class="w-full" />
-            </div>
             <Button as="a" href={purchaseUrl} variant="primary" class="w-full justify-center" aria-label={t.ui.checkoutAria}>
               {t.ui.browseCheatsMobile}
             </Button>

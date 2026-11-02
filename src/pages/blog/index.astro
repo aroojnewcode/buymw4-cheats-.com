@@ -53,25 +53,25 @@ const tagIcon = (tag: string): IconName =>
 >
   <link slot="head" rel="preload" as="image" href={lcpImage} type="image/webp" fetchpriority="high" />
 
-  <section class="py-8 md:py-12">
-    <div class="mx-auto max-w-6xl px-5">
-      <Breadcrumbs items={breadcrumbs} />
-    </div>
-  </section>
-
-  <section
-    class="border-y border-border bg-muted/20 py-12 md:py-16"
-    aria-labelledby="blog-latest-title"
-    data-blog-index
-    data-empty-message={t.blog.emptyFilter}
-  >
+  <section class="border-y border-border bg-muted/20 py-12 md:py-16">
     <div class="mx-auto max-w-6xl px-5">
       <header class="section-header max-w-2xl">
         <p class="section-header__eyebrow">{t.blog.eyebrow}</p>
         <h1 id="blog-latest-title" class="section-header__title">{seo.h1}</h1>
         <p class="section-header__subtitle">{t.blog.latestSubtitle}</p>
       </header>
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </section>
 
+  <section
+    class="border-b border-border bg-muted/20 pb-12 md:pb-16"
+    aria-labelledby="blog-latest-title"
+    data-blog-index
+    data-empty-message={t.blog.emptyFilter}
+  >
+    <div class="mx-auto max-w-6xl px-5">
+      <h2 class="sr-only">Article filters</h2>
       <div class="mt-8 flex flex-col gap-4 lg:mt-10 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
         <div
           class="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

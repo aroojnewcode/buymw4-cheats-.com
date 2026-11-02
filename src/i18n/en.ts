@@ -616,6 +616,7 @@ export const en: Translations = {
       { href: '/about/', label: 'About buymw4cheats.com', ariaLabel: 'About page' },
       { href: '/blog/', label: 'Read patch guides', ariaLabel: 'Blog index' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ page' },
+      { href: '/forum/', label: 'Community Q&A forum hub', ariaLabel: 'Forum index' },
     ],
     support: 'Support',
     legal: 'Legal',

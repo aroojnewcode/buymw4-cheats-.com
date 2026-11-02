@@ -4,18 +4,5 @@ Allow: /
 Disallow: /go/
 
 Sitemap: https://buymw4cheats.com/sitemap.xml
-Sitemap: https://buymw4cheats.com/sitemap-en.xml
-Sitemap: https://buymw4cheats.com/sitemap-ko.xml
-Sitemap: https://buymw4cheats.com/sitemap-zh-tw.xml
-Sitemap: https://buymw4cheats.com/sitemap-de.xml
-Sitemap: https://buymw4cheats.com/sitemap-pt-br.xml
-Sitemap: https://buymw4cheats.com/sitemap-th.xml
-Sitemap: https://buymw4cheats.com/sitemap-ja.xml
-Sitemap: https://buymw4cheats.com/sitemap-es.xml
-Sitemap: https://buymw4cheats.com/sitemap-fr.xml
-Sitemap: https://buymw4cheats.com/sitemap-pages.xml
-Sitemap: https://buymw4cheats.com/sitemap-products.xml
-Sitemap: https://buymw4cheats.com/sitemap-blog.xml
-Sitemap: https://buymw4cheats.com/sitemap-forum.xml
 
 # RSS: https://buymw4cheats.com/rss.xml

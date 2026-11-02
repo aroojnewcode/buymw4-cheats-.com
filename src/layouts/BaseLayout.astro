@@ -85,6 +85,18 @@ const xDefault = canonicalUrl(localizePath('en', barePath));
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style is:inline>
+      @media (max-width: 639px) {
+        .site-header-bar { border-radius: 1rem; }
+        main { overflow-x: hidden; }
+      }
+      @media (min-width: 640px) and (max-width: 1023px) {
+        .site-header-nav { gap: 0.25rem; }
+      }
+      @media (min-width: 1024px) {
+        .social-share { justify-content: flex-end; }
+      }
+    </style>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={t.site.name} />

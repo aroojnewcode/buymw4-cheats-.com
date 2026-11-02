@@ -27,8 +27,8 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=86400
-  Content-Type: text/xml; charset=utf-8
+  Content-Type: application/xml
 
 /sitemap-*.xml
   Cache-Control: public, max-age=86400
-  Content-Type: text/xml; charset=utf-8
+  Content-Type: application/xml

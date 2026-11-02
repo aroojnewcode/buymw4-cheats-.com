@@ -4,7 +4,7 @@ const BRAND_ICON_ALT: Record<string, string> = {
   '/products/mw4-cheats/': 'Mw4 – favicon',
   '/blog/': 'Modern Warfare guides – favicon',
   '/forum/': 'Forum – favicon',
-  '/faq/': 'Cheat – favicon',
+  '/faq/': 'Loader Setup – Cheat – favicon',
 };
 
 export function brandIconAltForPath(barePath: string, fallback: string): string {
