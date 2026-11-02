@@ -1,4 +1,5 @@
 import type { DeepPartialTranslations } from '../partial';
+import { PRIMARY_CHECKOUT_PATH } from '../../config/checkout';
 import { PRODUCT_BASE } from '../../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -160,7 +161,7 @@ export const zhTw: DeepPartialTranslations = {
     intro: '結帳 → 從入口網站下載載入器 → 載入預設 → 啟動 Modern Warfare。卡關時請到 Discord 詢問。',
     ctaPrimary: '查看產品',
     ctaSecondary: '安裝常見問題',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       { step: '步驟 1', title: '購買並下載載入器', desc: '付款完成後，從入口網站取得最新 Windows 載入器。' },

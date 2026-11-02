@@ -1,4 +1,5 @@
 import type { DeepPartialTranslations } from '../partial';
+import { PRIMARY_CHECKOUT_PATH } from '../../config/checkout';
 import { PRODUCT_BASE } from '../../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -160,7 +161,7 @@ export const th: DeepPartialTranslations = {
     intro: 'ชำระเงิน → ดาวน์โหลดโหลดเดอร์จากพอร์ทัล → โหลดพรีเซ็ต → เปิด Modern Warfare ติดปัญหาถามใน Discord ได้',
     ctaPrimary: 'ดูสินค้า',
     ctaSecondary: 'FAQ การติดตั้ง',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       { step: 'ขั้นที่ 1', title: 'ซื้อและดาวน์โหลดโหลดเดอร์', desc: 'หลังชำระเงิน รับโหลดเดอร์ Windows ล่าสุดจากพอร์ทัล' },

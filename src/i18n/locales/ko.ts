@@ -1,4 +1,5 @@
 import type { DeepPartialTranslations } from '../partial';
+import { PRIMARY_CHECKOUT_PATH } from '../../config/checkout';
 import { PRODUCT_BASE } from '../../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -160,7 +161,7 @@ export const ko: DeepPartialTranslations = {
     intro: '결제 → 포털에서 로더 다운로드 → 프리셋 로드 → Modern Warfare 실행. 막히면 디스코드로.',
     ctaPrimary: '제품 보기',
     ctaSecondary: '설치 FAQ',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       { step: '1단계', title: '구매 후 로더 다운로드', desc: '결제 완료 후 포털에서 최신 Windows 로더를 받으세요.' },

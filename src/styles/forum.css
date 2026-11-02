@@ -251,7 +251,7 @@
 .forum-vote__up.is-upvoted svg { color:var(--primary); }
 .forum-vote__up:hover:not(:disabled) { color:var(--primary); background:color-mix(in oklch,var(--primary) 12%,transparent); }
 .forum-community-avatar--brand { width:2.6rem; height:2.6rem; border:1px solid var(--border); background:var(--card); overflow:hidden; }
-.forum-community-avatar--brand img { display:block; width:100%; height:100%; border-radius:inherit; object-fit:cover; }
+.forum-community-avatar--brand img { display:block; width:100%; height:100%; border-radius:inherit; object-fit:contain; }
 .forum-hero h1 { white-space:nowrap; font-size:clamp(1.55rem,3.5vw,2.75rem); }
 @media(max-width:520px) { .forum-hero h1 { font-size:clamp(1.3rem,6vw,1.65rem); } }
 .forum-results-count { margin:0 0 .45rem; color:var(--muted-foreground); font-size:.68rem; }

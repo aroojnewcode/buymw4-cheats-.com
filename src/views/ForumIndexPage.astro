@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/icons/Icon.astro';
 import { forumCategories, forumPosts } from '../data/forum';
+import { BRAND_ICON, BRAND_ICON_2X } from '../config/site';
 import { blogPosts, getBlogPostTimestamp } from '../data/blog';
 import { resolvePageSeo } from '../config/seo';
 import { breadcrumbSchema, collectionPageSchema } from '../utils/schema';
@@ -190,7 +191,13 @@ const localizeHref = (href?: string) => {
             <div class="forum-about__content">
               <div class="forum-about__title">
                 <span class="forum-community-avatar forum-community-avatar--brand">
-                  <img src="/logo.svg" alt="" width="34" height="34" />
+                  <img
+                    src={BRAND_ICON}
+                    srcset={`${BRAND_ICON} 1x, ${BRAND_ICON_2X} 2x`}
+                    alt=""
+                    width={34}
+                    height={34}
+                  />
                 </span>
                 <h2>{shell.communityTitle}</h2>
               </div>

@@ -1,4 +1,5 @@
 import type { DeepPartialTranslations } from '../partial';
+import { PRIMARY_CHECKOUT_PATH } from '../../config/checkout';
 import { PRODUCT_BASE } from '../../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -161,7 +162,7 @@ export const de: DeepPartialTranslations = {
     intro: 'Kaufen → Loader im Portal laden → Preset laden → Modern Warfare starten. Bei Problemen hilft Discord.',
     ctaPrimary: 'Produkte ansehen',
     ctaSecondary: 'Setup-FAQ',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       { step: 'Schritt 1', title: 'Kaufen und Loader laden', desc: 'Nach dem Checkout den neuesten Windows-Loader im Portal holen.' },

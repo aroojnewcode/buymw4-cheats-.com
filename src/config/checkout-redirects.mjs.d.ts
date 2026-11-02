@@ -1,3 +1,5 @@
+export declare const ZADEYO_MW4_CHECKOUT: string;
+
 export declare const CHECKOUT_URLS: {
   readonly mw4: string;
   readonly skinChanger: string;

@@ -1,4 +1,5 @@
 import type { DeepPartialTranslations } from '../partial';
+import { PRIMARY_CHECKOUT_PATH } from '../../config/checkout';
 import { PRODUCT_BASE } from '../../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -160,7 +161,7 @@ export const ptBr: DeepPartialTranslations = {
     intro: 'Pague → baixe o loader no portal → carregue um preset → abra o Modern Warfare. Travou? Pergunte no Discord.',
     ctaPrimary: 'Ver produtos',
     ctaSecondary: 'FAQ de instalação',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       { step: 'Passo 1', title: 'Compre e baixe o loader', desc: 'Após o pagamento, pegue o loader mais recente para Windows no portal.' },

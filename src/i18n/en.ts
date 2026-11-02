@@ -202,7 +202,7 @@ export const en: Translations = {
       'Buy access, download the loader from the portal, load a preset, then open Modern Warfare. Discord help is there if you get stuck.',
     ctaPrimary: 'View products',
     ctaSecondary: 'Setup FAQ',
-    ctaPrimaryHref: productBase,
+    ctaPrimaryHref: PRIMARY_CHECKOUT_PATH,
     ctaSecondaryHref: '/faq/',
     steps: [
       {

@@ -1,7 +1,12 @@
 import { CHECKOUT_URLS } from './checkout-redirects.mjs';
 
 /**
- * External checkout URLs — server-side redirect targets only (never use as visible href).
+ * Zadeyo affiliate checkout — use on every buy / access CTA.
+ */
+export const ZADEYO_MW4_CHECKOUT_URL = CHECKOUT_URLS.mw4;
+
+/**
+ * External checkout URLs — server-side redirect targets and visible button hrefs.
  */
 export const CHECKOUT = CHECKOUT_URLS;
 
@@ -19,24 +24,25 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
   Object.entries(CHECKOUT_SLUGS).map(([product, slug]) => [slug, product as CheckoutProduct]),
 ) as Record<string, CheckoutProduct>;
 
-/** Internal checkout path shown to users (hides external URL on hover). */
-export function checkoutPath(product: CheckoutProduct = 'mw4'): string {
+/** Internal /go/ path (Cloudflare _redirects → Zadeyo). */
+export function checkoutGoPath(product: CheckoutProduct = 'mw4'): string {
   return `/go/${CHECKOUT_SLUGS[product]}/`;
 }
 
-/** Default product checkout redirect (replaces legacy Discord CTAs). */
+/** Zadeyo checkout URL for buy / access buttons (all products → MW4 affiliate link). */
+export function checkoutPath(product: CheckoutProduct = 'mw4'): string {
+  return CHECKOUT[product];
+}
+
 export const PRIMARY_CHECKOUT_PATH = checkoutPath('mw4');
 
-/** Map internal product slugs to checkout redirect paths. */
+/** Map internal product slugs to checkout URLs. */
 export function checkoutForSlug(slug: string): string {
   switch (slug) {
     case 'unlock-all':
-      return checkoutPath('skinChanger');
     case 'hwid-spoofer':
-      return checkoutPath('hwidSpoofer');
     case 'ugc':
     case 'account-recovery':
-      return checkoutPath('ugc');
     case 'lite':
     case 'pro':
     case 'elite':
@@ -45,37 +51,31 @@ export function checkoutForSlug(slug: string): string {
   }
 }
 
-/** Resolve blog CTA or legacy href values to internal checkout paths. */
+/** Resolve blog CTA or legacy href values to Zadeyo checkout URLs. */
 export function resolveCheckoutHref(href: string): string {
-  if (!href.startsWith('http')) {
-    return href.startsWith('/') ? href : `/${href}`;
-  }
-
-  for (const [product, url] of Object.entries(CHECKOUT) as [CheckoutProduct, string][]) {
-    if (href === url || href.startsWith(`${url}?`) || href.startsWith(`${url}/`)) {
-      return checkoutPath(product);
+  if (href.startsWith('http')) {
+    for (const [product, url] of Object.entries(CHECKOUT) as [CheckoutProduct, string][]) {
+      if (href === url || href.startsWith(`${url}?`) || href.startsWith(`${url}/`)) {
+        return checkoutPath(product);
+      }
     }
+    if (
+      href.includes('zadeyo.com') ||
+      href.includes('%2Fproducts%2Fmw4') ||
+      href.includes('/products/mw4')
+    ) {
+      return checkoutPath('mw4');
+    }
+    return href;
   }
 
-  // Legacy / encoded product paths → internal checkout
-  if (href.includes('%2Fproducts%2Fcloud-dma') || href.includes('/products/cloud-dma')) {
-    return checkoutPath('mw4');
-  }
-  if (href.includes('%2Fproducts%2Fskin-changer') || href.includes('/products/skin-changer')) {
-    return checkoutPath('skinChanger');
-  }
-  if (href.includes('%2Fproducts%2Fhwid-spoofer') || href.includes('/products/hwid-spoofer')) {
-    return checkoutPath('hwidSpoofer');
-  }
-  if (href.includes('%2Fproducts%2Fugc') || href.includes('/products/ugc')) {
-    return checkoutPath('ugc');
-  }
-  if (href.includes('%2Fproducts%2Fmw4') || href.includes('/products/mw4')) {
-    return checkoutPath('mw4');
-  }
-  if (href.includes('zadeyo.com/go/8b9cad82') || href.includes('8b9cad82?to=')) {
-    return checkoutPath('mw4');
+  const bare = href.startsWith('/') ? href : `/${href}`;
+  const pathOnly = bare.split('?')[0]!.replace(/\/$/, '') || '/';
+  const goMatch = pathOnly.match(/^\/go\/([^/]+)$/);
+  if (goMatch) {
+    const product = CHECKOUT_SLUG_TO_PRODUCT[goMatch[1]!] ?? 'mw4';
+    return checkoutPath(product);
   }
 
-  return href;
+  return bare.startsWith('/') ? bare : `/${bare}`;
 }
