@@ -68,8 +68,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>{meta.englishName} ({meta.hreflang})</span>
-            <span class="sr-only">{meta.nativeName}</span>
+            <span>{meta.nativeName}</span>
+            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
           </a>
         );
       })
@@ -96,8 +96,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>{meta.englishName} ({meta.hreflang})</span>
-            <span class="sr-only">{meta.nativeName}</span>
+            <span>{meta.nativeName}</span>
+            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
           </a>
         );
       })

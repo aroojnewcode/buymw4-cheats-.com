@@ -55,12 +55,7 @@ export function absoluteShareImageUrl(path: string): string {
   return absoluteAssetUrl(shareImagePath(path));
 }
 
-export type ResolvedPageSeo = {
-  title: string;
-  description: string;
-  h1: string;
-  brandIconAlt?: string;
-};
+export type ResolvedPageSeo = { title: string; description: string; h1: string };
 
 export function resolvePageSeo(
   pathname: string,
@@ -80,9 +75,7 @@ export function resolvePageSeo(
     title.split(/\s*[|—–]\s*/)[0]?.trim() ??
     title;
 
-  const brandIconAlt = entry?.brandIconAlt;
-
-  return { title, description, h1, brandIconAlt };
+  return { title, description, h1 };
 }
 
 export function pageTitle(keyword: string, brand?: string, locale?: string | null): string {

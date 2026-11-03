@@ -23,7 +23,6 @@ interface Props {
   id?: string;
   class?: string;
   hideHeader?: boolean;
-  headingAs?: 'h1' | 'h2' | 'h3';
 }
 
 const {
@@ -39,7 +38,6 @@ const {
   id: sectionId,
   class: className,
   hideHeader = false,
-  headingAs = 'h1',
 } = Astro.props;
 
 const topicLabels: Record<FaqTopic, string> = {
@@ -72,7 +70,6 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'p
           desc={subtitle}
           titleId={titleId}
           centered={centered}
-          as={headingAs}
         />
       )
     }

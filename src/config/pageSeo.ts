@@ -8,24 +8,20 @@ export interface PageSeoEntry {
   /** Visible page heading (may differ from document title). */
   h1: string;
   description: string;
-  /** Optional header favicon alt for this route. */
-  brandIconAlt?: string;
 }
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Buy MW4 Cheats | ESP, Aimbot & Radar — buymw4cheats.com',
-    h1: 'Buy MW4 Cheats — ESP, Aimbot & Radar for PC | buymw4cheats.com',
+    h1: 'Buy MW4 Cheats — ESP, Aimbot & Radar',
     description:
-      'Mw4 Cheats: Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer.',
-    brandIconAlt: 'Mw4 cheats – site favicon',
+      'Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer. Built for Multiplayer, Warzone and Ranked Play.',
   },
   '/products/mw4-cheats/': {
-    title: 'Mw4 – Compare Lite, Pro & Elite Tiers | buymw4cheats.com',
-    h1: 'MW4 Hacks — Compare Lite, Pro & Elite Tiers',
+    title: 'MW4 Hacks | Compare Lite, Pro & Elite Tiers',
+    h1: 'MW4 Hacks — Compare Lite, Pro & Elite',
     description:
-      'MW4 Elite cheats, HWID spoofer, UGC recovery and Loadout Changer for Multiplayer, Warzone and Ranked on PC. MW4 Hacks — Compare Lite, Pro & Elite tiers.',
-    brandIconAlt: 'Mw4 – favicon',
+      'MW4 Elite cheats, HWID spoofer, UGC recovery and Loadout Changer for Multiplayer, Warzone and Ranked on PC.',
   },
   '/products/mw4-cheats/elite/': {
     title: 'Elite Modern Warfare Cheats | ESP, Aimbot & Loot Assist',
@@ -40,21 +36,20 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'HWID Spoofer after hardware bans, UGC for Activision and Ricochet appeals, and local Loadout Changer / Unlock All tool.',
   },
   '/blog/': {
-    title: 'Modern Warfare – Ranked presets | buymw4cheats.com',
-    h1: 'Modern Warfare Guides, Ricochet & Patch Notes',
+    title: 'Modern Warfare Guides & Ricochet Patch Notes',
+    h1: 'Modern Warfare Guides & Patch Notes',
     description:
-      'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks for PC players.',
+      'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks.',
   },
   '/forum/': {
-    title: 'Forum – Talk Modern Warfare cheat setup | buymw4cheats.com',
+    title: 'MW4 Hacks Community Forum',
     h1: 'MW4 Hacks Community Forum',
     description:
-      'Forum: Talk Modern Warfare cheat setup, ESP and weapon configs, Ricochet status and product questions. Forum MW4 community Q&A.',
-    brandIconAlt: 'Forum – favicon',
+      'Talk Modern Warfare cheat setup, ESP and weapon configs, Ricochet status and product questions.',
   },
   '/faq/': {
-    title: 'Cheat – ESP, Aimbot & Loader Setup | buymw4cheats.com',
-    h1: 'Cheat: Common questions — ESP, aimbot, loader setup',
+    title: 'MW4 Cheat FAQ | ESP, Aimbot & Loader Setup',
+    h1: 'MW4 Cheat FAQ',
     description:
       'Answers on Modern Warfare cheat tiers, ESP wallhack, minimap radar, aimbot, HWID spoofer, Loadout Changer and loader setup.',
   },
@@ -71,17 +66,16 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'How buymw4cheats.com uses analytics, cookies and contact data.',
   },
   '/about/': {
-    title: 'Modern Warfare Cheats – guides and utilities at buymw4cheats',
+    title: 'About Modern Warfare Cheats',
     h1: 'About Modern Warfare Cheats',
     description:
-      'Modern Warfare Cheats sells PC Modern Warfare cheat tiers, guides and utilities at buymw4cheats.com. About our team, tiers and support.',
+      'Modern Warfare Cheats sells PC Modern Warfare cheat tiers, guides and utilities at buymw4cheats.com.',
   },
   '/support/': {
-    title: 'Support – Modern Warfare Cheats | buymw4cheats.com',
-    h1: 'Support & Loader Help — Buy MW4 Cheats',
+    title: 'Buy MW4 Cheats — Support & Loader Help',
+    h1: 'Buy MW4 Cheats — Support',
     description:
-      'Support: Help with Modern Warfare cheat loader setup, configs, HWID spoofing and checkout. Buy MW4 Cheats support for loader, HWID and checkout.',
-    brandIconAlt: 'Support – favicon',
+      'Help with Modern Warfare cheat loader setup, configs, HWID spoofing and checkout.',
   },
 };
 

@@ -23,11 +23,9 @@ import { PRODUCT_BASE, BRAND_ICON, BRAND_ICON_2X } from '../config/site';
 
 interface Props {
   locale?: Locale;
-  brandIconAlt?: string;
 }
 
 const locale = resolveLocale(Astro.props.locale);
-const brandIconAlt = Astro.props.brandIconAlt ?? 'Modern Warfare Cheats favicon';
 const t = getTranslations(locale);
 const homeHref = localizePath(locale, '/');
 
@@ -66,7 +64,7 @@ const nav = t.nav.map((link) => {
           <img
             src={BRAND_ICON}
             srcset={`${BRAND_ICON} 1x, ${BRAND_ICON_2X} 2x`}
-            alt={brandIconAlt}
+            alt=""
             width={32}
             height={32}
             class="size-8 shrink-0 rounded-md object-contain"

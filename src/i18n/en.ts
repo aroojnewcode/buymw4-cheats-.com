@@ -15,12 +15,12 @@ export const en: Translations = {
     discord: DISCORD_URL,
   },
   nav: [
-    { href: '/', label: 'MW4 home' },
-    { href: `${productBase}`, label: 'Products hub' },
-    { href: '/blog/', label: 'Guides blog' },
-    { href: '/forum/', label: 'Community forum' },
-    { href: '/faq/', label: 'Cheat FAQ hub' },
-    { href: '/support/', label: 'Loader support' },
+    { href: '/', label: 'Home' },
+    { href: `${productBase}`, label: 'Products' },
+    { href: '/blog/', label: 'Blog' },
+    { href: '/forum/', label: 'Forum' },
+    { href: '/faq/', label: 'FAQ' },
+    { href: '/support/', label: 'Support' },
   ],
   hero: {
     status: 'Modern Warfare online',
@@ -570,7 +570,7 @@ export const en: Translations = {
   },
   faq: {
     eyebrow: 'FAQ',
-    title: 'Cheat FAQ — common questions',
+    title: 'Common questions',
     subtitle: 'Compatibility, bans, tiers and setup.',
     items: [
       {
@@ -625,33 +625,26 @@ export const en: Translations = {
     about: {
       title: 'About Modern Warfare Cheats',
       description:
-        'We sell PC Modern Warfare cheat tiers, utilities and guides at buymw4cheats.com.',
+        'Modern Warfare Cheats sells Modern Warfare cheat tiers, utilities and guides at buymw4cheats.com.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'Modern Warfare Cheats is a PC storefront for ESP, wallhack, Minimap radar, weapon aimbot and Loadout Changer tools. We publish tier comparisons, loader setup guides and live Ricochet status notes after Activision patches.',
-            'Game and product names are for identification only. We are not affiliated with Activision or Microsoft.',
+            'Modern Warfare Cheats is a PC site for Modern Warfare ESP, wallhack, Minimap radar, weapon aimbot and Loadout Changer products. We post tier comparisons, setup guides and live status notes.',
+            'Game and product names are for identification only.',
           ],
         },
         {
           heading: 'What we sell',
           paragraphs: [
-            'Lite, Pro and Elite tiers, plus HWID Spoofer, Loadout Changer and UGC recovery utilities. The blog covers configs, patch-day checks and Ranked presets so you can pick the right access level before checkout.',
-            'Pages update when Modern Warfare or the loader changes. Check the homepage status banner and Discord #status before you queue Multiplayer, Warzone or Ranked.',
+            'Lite, Pro and Elite Modern Warfare cheats, plus HWID Spoofer, Loadout Changer and UGC recovery. The blog covers configs, patch checks and Ricochet updates.',
+            'Pages are updated when Modern Warfare or the loader changes. Check the homepage status banner and Discord #status before you play.',
           ],
         },
         {
-          heading: 'How we support players',
+          heading: 'Support',
           paragraphs: [
-            'Discord and email cover loader errors, HWID resets, compatibility questions and checkout receipts. Include your order email, Activision account tag and Windows version when you open a ticket.',
-            'Our team maintains external loaders and cloud configs between Ricochet waves—documentation on buymw4cheats.com mirrors what support sends in tickets so you are not waiting on copy-paste answers.',
-          ],
-        },
-        {
-          heading: 'Guides and community',
-          paragraphs: [
-            'Long-form guides on ESP wallhack, aimbot profiles, Lite vs Pro and anti-cheat checklists live in the blog and forum. They link back to product pages so you can move from research to purchase in one session.',
+            'Use Discord or email for loader errors, compatibility and checkout questions. Include your order email, Activision account and Windows version.',
           ],
         },
       ],

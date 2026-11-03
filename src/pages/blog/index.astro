@@ -25,7 +25,7 @@ const locale = 'en' as const;
 const t = getTranslations(locale);
 const seo = resolvePageSeo('/blog/', locale);
 const breadcrumbs = [
-  { name: 'Site index', path: '/' },
+  { name: 'Home', path: '/' },
   { name: t.blog.eyebrow, path: '/blog/' },
 ];
 
@@ -139,15 +139,6 @@ const tagIcon = (tag: string): IconName =>
       </div>
     </div>
   </section>
-
-  <nav class="sr-only" aria-label="German blog guides from sitemap">
-    <a href="/de/blog/mw4-lite-vs-pro/">DE — Lite vs Pro comparison</a>
-    <a href="/de/blog/mw4-loadout-changer-guide/">DE — Loadout changer guide</a>
-    <a href="/de/blog/mw4-multiplayer-guide/">DE — Multiplayer guide</a>
-    <a href="/de/blog/mw4-multiplayer-tips/">DE — Multiplayer tips</a>
-    <a href="/de/blog/mw4-multiplayer-vs-warzone/">DE — Multiplayer vs Warzone</a>
-    <a href="/de/blog/mw4-radar-hack-guide/">DE — Radar hack guide</a>
-  </nav>
 
   <script>
     import { setupBlogIndexFilters } from '../../scripts/blog-index.ts';

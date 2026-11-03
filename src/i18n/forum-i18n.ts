@@ -34,7 +34,7 @@ const EN_SHELL: ForumShellCopy = {
   pageAria: 'Page',
   showingRange: 'Showing',
   zeroDiscussions: '0 discussions',
-  communityTitle: 'Forum: Modern Warfare Cheats',
+  communityTitle: 'Modern Warfare Cheats Community',
   communityLead:
     'A home for Modern Warfare players to trade ideas, learn together, and celebrate the game.',
   topics: 'topics',
