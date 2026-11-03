@@ -13,14 +13,13 @@ const s = t.cheats;
 
 <section id="cheats" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="cheats-title">
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="cheats-title" as="h2" />
+    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="cheats-title" />
 
     <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {cheatPages.map((cheat) => (
+      {cheatPages.map((cheat, i) => (
         <CatalogCard
           label={cheat.tier ?? cheat.name}
           title={cheat.title}
-          titleLinkText={`${cheat.title} — home cheat tiers`}
           href={cheatPath(cheat.slug)}
           buyUrl={cheat.buyUrl}
           features={cheat.features}
@@ -28,8 +27,8 @@ const s = t.cheats;
           icon={cheatTierIcons[cheat.name] ?? 'crosshair'}
           badge={cheat.badge}
           variant={cheat.variant}
-          buyLabel={`Buy ${cheat.slug} tier`}
-          viewLabel={`Open ${cheat.slug} tier page`}
+          buyLabel="Buy now"
+          viewLabel="View details"
         />
       ))}
     </div>

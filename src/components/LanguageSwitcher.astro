@@ -68,7 +68,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>Switch to {meta.englishName} ({meta.hreflang})</span>
+            <span>{meta.nativeName}</span>
+            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
           </a>
         );
       })
@@ -95,7 +96,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>Switch to {meta.englishName} ({meta.hreflang})</span>
+            <span>{meta.nativeName}</span>
+            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
           </a>
         );
       })
@@ -106,7 +108,7 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
           href={localizePath(DEFAULT_LOCALE, barePath)}
           class="mt-1 flex items-center gap-2 rounded-lg border-t border-border px-2.5 py-2 text-xs text-muted-foreground hover:bg-muted hover:text-foreground"
         >
-          Return to English (en-US default)
+          English (default)
         </a>
       )
     }

@@ -13,7 +13,7 @@ const locale = 'en' as const;
 const t = getTranslations(locale);
 const seo = resolvePageSeo('/faq/', locale);
 const breadcrumbs = [
-  { name: t.ui.breadcrumbHome, path: '/' },
+  { name: 'Home', path: '/' },
   { name: t.faq.eyebrow, path: '/faq/' },
 ];
 
@@ -46,13 +46,10 @@ const faqs = localizeFaqItems(locale, getAllFaqs());
       <div class="mt-6">
         <SectionHeader
           eyebrow={t.faq.eyebrow}
-          title={seo.h1}
+          title={t.faq.title}
           desc={t.faq.subtitle}
           titleId="faq-page-title"
         />
-        <h2 class="mt-4 text-xl font-semibold tracking-tight md:text-2xl">
-          Loader Setup: Modern Warfare Cheats
-        </h2>
       </div>
     </div>
   </section>
@@ -61,6 +58,6 @@ const faqs = localizeFaqItems(locale, getAllFaqs());
     items={faqs}
     variant="full"
     hideHeader
-    titleId="faq-accordion-heading"
+    titleId="faq-page-title"
   />
 </BaseLayout>

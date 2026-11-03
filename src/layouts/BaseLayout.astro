@@ -23,8 +23,6 @@ import {
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
-import SocialShare from '../components/SocialShare.astro';
-import { brandIconAltForPath } from '../config/brand-icon-alt';
 
 interface Props {
   title?: string;
@@ -57,7 +55,6 @@ const {
 
 const barePath = stripLocalePrefix(Astro.url.pathname);
 const canonical = canonicalUrl(localizePath(locale, barePath));
-const brandIconAlt = brandIconAltForPath(barePath, `${t.site.name} site icon`);
 const ogImageUrl = absoluteShareImageUrl(ogImage);
 const robotsContent = noindex
   ? 'noindex, nofollow'
@@ -85,18 +82,6 @@ const xDefault = canonicalUrl(localizePath('en', barePath));
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style is:inline>
-      @media (max-width: 639px) {
-        .site-header-bar { border-radius: 1rem; }
-        main { overflow-x: hidden; }
-      }
-      @media (min-width: 640px) and (max-width: 1023px) {
-        .site-header-nav { gap: 0.25rem; }
-      }
-      @media (min-width: 1024px) {
-        .social-share { justify-content: flex-end; }
-      }
-    </style>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={t.site.name} />
@@ -190,12 +175,9 @@ const xDefault = canonicalUrl(localizePath('en', barePath));
   </head>
   <body class="min-h-screen bg-background text-foreground">
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
-    <Header locale={locale} brandIconAlt={brandIconAlt} />
+    <Header locale={locale} />
     <main id="main-content">
       <slot />
-      <div class="mx-auto max-w-6xl px-5">
-        <SocialShare url={canonical} title={title} />
-      </div>
     </main>
     <Footer locale={locale} />
     <script>
