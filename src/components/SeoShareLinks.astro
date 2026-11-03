@@ -1,0 +1,20 @@
+---
+import { canonicalUrl } from '../config/seo';
+
+interface Props {
+  url: string;
+  title: string;
+}
+
+const { url, title } = Astro.props;
+const pageUrl = canonicalUrl(url);
+const shareUrl = encodeURIComponent(pageUrl);
+const shareTitle = encodeURIComponent(title);
+---
+
+<nav class="sr-only" aria-label="Share this page">
+  <a href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`}>Share on X</a>
+  <a href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}>Share on Facebook</a>
+  <a href={`https://t.me/share/url?url=${shareUrl}&text=${shareTitle}`}>Share on Telegram</a>
+  <a href={`https://www.reddit.com/submit?url=${shareUrl}&title=${shareTitle}`}>Share on Reddit</a>
+</nav>

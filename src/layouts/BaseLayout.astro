@@ -19,11 +19,12 @@ import {
   DEFAULT_OG_IMAGE_WIDTH,
   GA_MEASUREMENT_ID,
   absoluteShareImageUrl,
+  resolvePageSeo,
 } from '../config/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
-import { resolvePageSeo } from '../config/seo';
+import SeoShareLinks from '../components/SeoShareLinks.astro';
 
 interface Props {
   title?: string;
@@ -55,7 +56,8 @@ const {
 } = Astro.props;
 
 const barePath = stripLocalePrefix(Astro.url.pathname);
-const pageSeo = resolvePageSeo(barePath, locale);
+const pageSeoMeta = resolvePageSeo(barePath, locale);
+const brandIconAlt = pageSeoMeta.brandIconAlt ?? 'Modern Warfare Cheats favicon';
 const canonical = canonicalUrl(localizePath(locale, barePath));
 const ogImageUrl = absoluteShareImageUrl(ogImage);
 const robotsContent = noindex
@@ -177,33 +179,11 @@ const xDefault = canonicalUrl(localizePath('en', barePath));
   </head>
   <body class="min-h-screen bg-background text-foreground">
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
-    <Header locale={locale} brandIconAlt={pageSeo.iconAlt} />
+    <Header locale={locale} brandIconAlt={brandIconAlt} />
     <main id="main-content">
       <slot />
+      <SeoShareLinks url={localizePath(locale, barePath)} title={title} />
     </main>
-    <nav class="sr-only" aria-label="Share this page">
-      <a
-        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(canonical)}&text=${encodeURIComponent(title)}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Share on X
-      </a>
-      <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Share on Facebook
-      </a>
-      <a
-        href={`https://t.me/share/url?url=${encodeURIComponent(canonical)}&text=${encodeURIComponent(title)}`}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Share on Telegram
-      </a>
-    </nav>
     <Footer locale={locale} />
     <script>
       import '../scripts/site.ts';

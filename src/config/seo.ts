@@ -59,7 +59,7 @@ export type ResolvedPageSeo = {
   title: string;
   description: string;
   h1: string;
-  iconAlt: string;
+  brandIconAlt?: string;
 };
 
 export function resolvePageSeo(
@@ -79,9 +79,10 @@ export function resolvePageSeo(
     entry?.h1 ??
     title.split(/\s*[|—–]\s*/)[0]?.trim() ??
     title;
-  const iconAlt = entry?.iconAlt ?? 'Modern Warfare Cheats favicon';
 
-  return { title, description, h1, iconAlt };
+  const brandIconAlt = entry?.brandIconAlt;
+
+  return { title, description, h1, brandIconAlt };
 }
 
 export function pageTitle(keyword: string, brand?: string, locale?: string | null): string {

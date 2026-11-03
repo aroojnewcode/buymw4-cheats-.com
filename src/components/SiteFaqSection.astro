@@ -22,6 +22,7 @@ interface Props {
   subtitle?: string;
   /** Skip duplicate section header (e.g. /faq/ hero already has the h1). */
   hideHeader?: boolean;
+  /** Default h1; use h2 on pages that already have a primary h1. */
   headingAs?: 'h1' | 'h2' | 'h3';
 }
 

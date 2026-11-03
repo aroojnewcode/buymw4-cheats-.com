@@ -29,15 +29,9 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const hwid = link('HWID Spoofer product page', productPath('hwid-spoofer'));
-const ugcAppeals = link('UGC appeal workspace', productPath('ugc'));
-const ugcRecovery = link('UGC recovery details', productPath('ugc'));
-const skin = link('Loadout Changer utility', productPath('unlock-all'));
-const faqPage = link('full FAQ index', ROUTES.faq);
-const blog = link('blog guides hub', ROUTES.blog);
-const productsCompare = link('MW4 products comparison hub', ROUTES.products);
-const productsCatalog = link('Modern Warfare product catalog', ROUTES.products);
-const productsListing = link('All cheat tiers listing', ROUTES.products);
+const productsHub = link('Modern Warfare products catalog', ROUTES.products);
+const faqPage = link('full cheat FAQ index', ROUTES.faq);
+const blog = link('Modern Warfare blog guides', ROUTES.blog);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -80,14 +74,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `${productsCompare} lists cheat tiers, ${hwid}, ${ugcAppeals}, and ${skin} with feature lists and checkout via our partner.`,
+    a: `${productsHub} lists cheat tiers, ${link('HWID Spoofer utility', productPath('hwid-spoofer'))}, ${link('UGC appeal workspace', productPath('ugc'))}, and ${link('Loadout Changer tool', productPath('unlock-all'))} with feature lists and checkout via our partner.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
     q: 'What is Modern Warfare ESP wallhack / ESP?',
-    a: `ESP wallhack and player ESP show enemy positions, drops, loot and camps through contested Ranked terrain. ${link('Lite ESP tier overview', ROUTES.products)} covers awareness overlays. ${link('Pro combat scripts tier', ROUTES.products)} and ${link('Elite full automation tier', productPath('elite'))} add script modules on top.`,
+    a: `ESP wallhack and player ESP show enemy positions, drops, loot and camps through contested Ranked terrain. ${link('Lite ESP wallhack tier', ROUTES.products)} covers awareness overlays. ${link('Pro aimbot tier', ROUTES.products)} and ${link('MW4 Elite full suite', productPath('elite'))} add script modules on top.`,
     scopes: ['lite', 'pro', 'elite'],
   },
   {
@@ -95,14 +89,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What is the difference between ESP wallhack and aimbot?',
-    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Aim smoothing and Target lock are aimbot on ${link('Pro aimbot modules', ROUTES.products)} and ${link('Elite aimbot suite', productPath('elite'))}. You can run awareness-only on ${link('Lite awareness-only tier', ROUTES.products)}.`,
+    a: `ESP wallhack and ESP are information overlays—they do not cast abilities. Aimbot, Aim smoothing and Target lock are aimbot on ${link('Pro scripts tier', ROUTES.products)} and ${link('Elite automation tier', productPath('elite'))}. You can run awareness-only on ${link('Lite awareness tier', ROUTES.products)}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which tier do I need for ESP wallhack only?',
-    a: `${link('Lite map ESP tier', ROUTES.products)} is awareness only: player ESP, drop locator, loot timers and radar hack. ${link('Pro Ranked aimbot tier', ROUTES.products)} adds aimbot. ${link('Elite bot automation tier', productPath('elite'))} adds bots, kill steal and Loadout Changer.`,
+    a: `${link('Lite ESP-only plan', ROUTES.products)} is awareness only: player ESP, drop locator, loot timers and radar hack. ${link('Pro aimbot plan', ROUTES.products)} adds aimbot. ${link('Elite complete plan', productPath('elite'))} adds bots, kill steal and Loadout Changer.`,
     scopes: ['lite'],
   },
   {
@@ -110,7 +104,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
     q: 'Which tier includes Aimbot?',
-    a: `${link('Pro tier aimbot package', ROUTES.products)} ships Aimbot, Aim smoothing, Target lock and Hotkey macros. ${link('Elite tier complete bundle', productPath('elite'))} includes everything in Pro plus Loot Assist and Auto finish. ${link('Lite tier ESP-only plan', ROUTES.products)} has no skill automation.`,
+    a: `${link('Pro tier aimbot bundle', ROUTES.products)} ships Aimbot, Aim smoothing, Target lock and Hotkey macros. ${link('Elite tier full bundle', productPath('elite'))} includes everything in Pro plus Loot Assist and Auto finish. ${link('Lite tier ESP bundle', ROUTES.products)} has no skill automation.`,
     scopes: ['pro'],
   },
   {
@@ -118,7 +112,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → ${link('Lite awareness plan', ROUTES.products)}. Ranked gunfights with aimbot → ${link('Pro Ranked scripts plan', ROUTES.products)}. Full bot suite and priority patches → ${link('Elite priority patches plan', productPath('elite'))}. Compare on each cheat page or the ${faqPage}.`,
+    a: `Map awareness only → ${link('Lite comparison page', ROUTES.products)}. Ranked gunfights with aimbot → ${link('Pro comparison page', ROUTES.products)}. Full bot suite and priority patches → ${link('Elite comparison page', productPath('elite'))}. Compare on each cheat page or the ${faqPage}.`,
   },
   {
     id: 'elite-slots',
@@ -133,7 +127,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Can OBS capture my overlay?',
-    a: `Stream-proof mode on ${link('Lite stream-proof ESP', ROUTES.products)}, ${link('Pro stream-proof scripts', ROUTES.products)} and ${link('Elite stream-proof suite', productPath('elite'))} hides overlays from OBS and Discord share. Test a local recording before going live.`,
+    a: `Stream-proof mode on ${link('Lite stream-safe build', ROUTES.products)}, ${link('Pro stream-safe build', ROUTES.products)} and ${link('Elite stream-safe build', productPath('elite'))} hides overlays from OBS and Discord share. Test a local recording before going live.`,
   },
   {
     id: 'undetected',
@@ -154,7 +148,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${ugcRecovery} instead.`,
+    a: `Use ${link('HWID Spoofer after hardware ban', productPath('hwid-spoofer'))} when fresh Activision accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only anti-cheat cases; see ${link('UGC account appeals', productPath('ugc'))} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -162,7 +156,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `${ugcAppeals} (Unban & Governance Control) is an appeal workspace for Activision account restrictions and Ricochet bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `${link('UGC governance workspace', productPath('ugc'))} (Unban & Governance Control) is an appeal workspace for Activision account restrictions and Ricochet bans—custom workflows and case tracking, not a guaranteed unban service.`,
     scopes: ['ugc'],
   },
   {
@@ -170,7 +164,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqSkinChanger',
     q: 'Does Loadout Changer modify my loadout menu?',
-    a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${link('Elite cosmetic bundle tier', productPath('elite'))}; available standalone for cosmetic preview only.`,
+    a: `${link('Loadout Changer preview', productPath('unlock-all'))} previews cosmetics locally on your client. Other players see your real inventory. Included with ${link('Elite with Loadout Changer', productPath('elite'))}; available standalone for cosmetic preview only.`,
     scopes: ['unlock-all'],
   },
   {
@@ -178,21 +172,21 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqExternalLoader',
     q: 'Is the loader injected into the Activision folder?',
-    a: `Modern Warfare Cheats runs external with cloud config sync—no files injected into the Modern Warfare directory. anti-cheat risk still applies. See ${productsListing}.`,
+    a: `Modern Warfare Cheats runs external with cloud config sync—no files injected into the Modern Warfare directory. anti-cheat risk still applies. See ${productsHub}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
     q: 'Are blog cheat codes the same as Ranked cheats?',
-    a: `No. Blog articles about Activision console commands apply only in custom lobbies with cheats enabled. Ranked modern warfare cheats are separate products—see ${link('Lite ranked ESP tier', ROUTES.products)}, ${link('Pro ranked scripts tier', ROUTES.products)} and ${link('Elite ranked automation tier', productPath('elite'))}.`,
+    a: `No. Blog articles about Activision console commands apply only in custom lobbies with cheats enabled. Ranked modern warfare cheats are separate products—see ${link('Lite ranked awareness', ROUTES.products)}, ${link('Pro ranked aimbot', ROUTES.products)} and ${link('Elite ranked suite', productPath('elite'))}.`,
   },
   {
     id: 'blog-setup',
     topic: 'blog',
     icon: 'faqBlogSetup',
     q: 'Where do blog setup guides point for purchase?',
-    a: `Guides link to tier pages and ${productsCatalog}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
+    a: `Guides link to tier pages and ${productsHub}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
   },
   {
     id: 'compare-plans',
@@ -206,7 +200,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, drops, loot—and will not touch skill automation. If you keep enabling combo aimbot, buy ${link('Pro combo aimbot tier', ROUTES.products)} instead.`,
+    a: `Players who only want map awareness—ESP, drops, loot—and will not touch skill automation. If you keep enabling combo aimbot, buy ${link('Pro aimbot tier instead', ROUTES.products)} instead.`,
     scopes: ['lite'],
   },
   {
@@ -251,7 +245,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqZoomHack',
     q: 'Which tier includes radar hack?',
-    a: `Radar ships on ${link('Lite minimap radar tier', ROUTES.products)} and carries through ${link('Pro radar-enabled tier', ROUTES.products)} and ${link('Elite radar bundle', productPath('elite'))}. Mini-radar helps zone awareness without guessing rotates.`,
+    a: `Radar ships on ${link('Lite radar hack tier', ROUTES.products)} and carries through ${link('Pro radar stack', ROUTES.products)} and ${link('Elite radar stack', productPath('elite'))}. Mini-radar helps zone awareness without guessing rotates.`,
     scopes: ['lite'],
   },
   {
@@ -259,7 +253,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'scripts',
     icon: 'faqAutoFarm',
     q: 'Which tier includes Loot Assist?',
-    a: `Loot Assist, Zombies Assist AI and Auto loadout manager are ${link('Elite loot automation tier', productPath('elite'))} only. ${link('Pro combat-only tier', ROUTES.products)} covers combat aimbot without bot farming.`,
+    a: `Loot Assist, Zombies Assist AI and Auto loadout manager are ${link('Elite loot automation', productPath('elite'))} only. ${link('Pro combat aimbot', ROUTES.products)} covers combat aimbot without bot farming.`,
     scopes: ['elite'],
   },
   {
@@ -360,7 +354,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which tier matches this guide?',
-      a: `Awareness guides → ${link('Lite guide tier match', ROUTES.products)}. Script and combo guides → ${link('Pro guide tier match', ROUTES.products)}. Bot and kill-steal topics → ${link('Elite guide tier match', productPath('elite'))}.`,
+      a: `Awareness guides → ${link('Lite guide tier', ROUTES.products)}. Script and combo guides → ${link('Pro guide tier', ROUTES.products)}. Bot and kill-steal topics → ${link('Elite guide tier', productPath('elite'))}.`,
     },
     {
       id: 'blog-guide-status',
@@ -403,7 +397,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to ${link('Lite blog tier link', ROUTES.products)}, ${link('Pro blog tier link', ROUTES.products)}, ${link('Elite blog tier link', productPath('elite'))} and ${productsCompare}. Feature lists on product pages are authoritative for checkout.`,
+    a: `Articles explain workflows and link to ${link('Lite docs link', ROUTES.products)}, ${link('Pro docs link', ROUTES.products)}, ${link('Elite docs link', productPath('elite'))} and ${productsHub}. Feature lists on product pages are authoritative for checkout.`,
   },
   {
     id: 'blog-default-2',
@@ -431,7 +425,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Which tier covers ESP wallhack from this article?',
-      a: `${link('Lite ESP FAQ tier', ROUTES.products)} includes player ESP, drop locator and loot timers. ${link('Pro ESP plus aimbot FAQ tier', ROUTES.products)} adds combat aimbot on the same overlay stack.`,
+      a: `${link('Lite ESP article tier', ROUTES.products)} includes player ESP, drop locator and loot timers. ${link('Pro ESP article tier', ROUTES.products)} adds combat aimbot on the same overlay stack.`,
     });
   }
   if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
@@ -440,7 +434,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
       q: 'Which tier includes the aimbot in this article?',
-      a: `${link('Pro aimbot FAQ bundle', ROUTES.products)} and ${link('Elite aimbot FAQ bundle', productPath('elite'))} ship Aimbot and related modules. ${link('Lite ESP-only FAQ plan', ROUTES.products)} is ESP wallhack only.`,
+      a: `${link('Pro script article tier', ROUTES.products)} and ${link('Elite script article tier', productPath('elite'))} ship Aimbot and related modules. ${link('Lite ESP article tier', ROUTES.products)} is ESP wallhack only.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('ban') || slug.includes('eac')) {
@@ -449,7 +443,7 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       topic: 'products',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace HWID or UGC products?',
-      a: `Recovery guides complement ${hwid} and ${ugcRecovery}—read product pages for workflow scope and realistic outcomes.`,
+      a: `Recovery guides complement ${link('HWID recovery guides', productPath('hwid-spoofer'))} and ${link('UGC recovery guides', productPath('ugc'))}—read product pages for workflow scope and realistic outcomes.`,
     });
   }
 

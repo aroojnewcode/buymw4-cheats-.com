@@ -68,9 +68,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>
-              {compact ? `Mobile: ${meta.nativeName} (${meta.code.toUpperCase()})` : `Desktop: ${meta.nativeName} (${meta.code.toUpperCase()})`}
-            </span>
+            <span>{meta.englishName} ({meta.hreflang})</span>
+            <span class="sr-only">{meta.nativeName}</span>
           </a>
         );
       })
@@ -97,9 +96,8 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>
-              {compact ? `Mobile: ${meta.nativeName} (${meta.code.toUpperCase()})` : `Desktop: ${meta.nativeName} (${meta.code.toUpperCase()})`}
-            </span>
+            <span>{meta.englishName} ({meta.hreflang})</span>
+            <span class="sr-only">{meta.nativeName}</span>
           </a>
         );
       })

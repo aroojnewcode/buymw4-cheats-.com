@@ -9,15 +9,21 @@ import { Button } from '@/components/starwind/button';
 import { Badge } from '@/components/starwind/badge';
 
 interface Props {
+  /** When set (e.g. homepage), drives the primary H1 for SEO. */
   pageH1?: string;
 }
 
 const { pageH1 } = Astro.props;
-
 const locale = localeFromPathname(Astro.url.pathname);
 const t = getTranslations(locale);
 const h = t.hero;
 
+const h1Primary = pageH1?.split('|')[0]?.trim() ?? '';
+const h1Parts = h1Primary.includes('—')
+  ? h1Primary.split('—').map((part) => part.trim())
+  : null;
+const heroLine1 = h1Parts?.[0] ?? h.titleLine1;
+const heroLine2 = h1Parts?.[1] ?? h.titleLine2;
 
 const heroMarqueePills = [
   ...heroStatusPills,
@@ -41,16 +47,11 @@ const heroMarqueePills = [
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
       <div class="w-full max-w-xl space-y-6 text-left md:space-y-7 lg:max-w-2xl">
         <h1 id="hero-title" class="text-2xl font-bold leading-tight tracking-tight sm:text-3xl md:text-[1.75rem] lg:text-4xl">
-          {
-            pageH1 ? (
-              <span class="block text-foreground">{pageH1}</span>
-            ) : (
-              <>
-                <span class="block text-foreground">{h.titleLine1}</span>
-                <span class="block text-primary">{h.titleLine2}</span>
-              </>
-            )
-          }
+          <span class="block text-foreground">{heroLine1}</span>
+          <span class="block text-primary">{heroLine2}</span>
+          {pageH1?.includes('buymw4cheats') ? (
+            <span class="sr-only">buymw4cheats.com</span>
+          ) : null}
         </h1>
 
         <p class="max-w-xl text-sm leading-relaxed text-neutral-800 dark:text-neutral-400 md:text-base">

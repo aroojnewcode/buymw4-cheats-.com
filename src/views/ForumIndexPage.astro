@@ -165,10 +165,10 @@ const localizeHref = (href?: string) => {
                     <div class="forum-post-actions">
                       {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount} — {post.title}
+                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount} — {post.slug}
                       </a>
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="arrowRight" size={15} /> Open thread: {post.title}
+                        <Icon name="arrowRight" size={15} /> {shell.readDiscussion}: {post.title}
                       </a>
                     </div>
                   </div>
