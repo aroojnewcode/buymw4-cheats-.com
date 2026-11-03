@@ -23,7 +23,7 @@ const t = getTranslations(locale);
 const seo = resolvePageSeo('/products/mw4-cheats/', locale);
 const path = localizePath(locale, '/products/mw4-cheats/');
 const breadcrumbs = [
-  { name: 'Home', path: localizePath(locale, '/') },
+  { name: 'Site index', path: localizePath(locale, '/') },
   { name: t.products.eyebrow, path },
 ];
 ---
@@ -51,6 +51,7 @@ const breadcrumbs = [
           desc={t.products.subtitle}
           titleId="products-locale-title"
         />
+        <h2 class="sr-only">Mw4: Modern Warfare Cheats</h2>
       </div>
     </div>
   </section>

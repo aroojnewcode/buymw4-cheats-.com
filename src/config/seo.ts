@@ -55,7 +55,12 @@ export function absoluteShareImageUrl(path: string): string {
   return absoluteAssetUrl(shareImagePath(path));
 }
 
-export type ResolvedPageSeo = { title: string; description: string; h1: string };
+export type ResolvedPageSeo = {
+  title: string;
+  description: string;
+  h1: string;
+  iconAlt: string;
+};
 
 export function resolvePageSeo(
   pathname: string,
@@ -74,8 +79,9 @@ export function resolvePageSeo(
     entry?.h1 ??
     title.split(/\s*[|—–]\s*/)[0]?.trim() ??
     title;
+  const iconAlt = entry?.iconAlt ?? 'Modern Warfare Cheats favicon';
 
-  return { title, description, h1 };
+  return { title, description, h1, iconAlt };
 }
 
 export function pageTitle(keyword: string, brand?: string, locale?: string | null): string {

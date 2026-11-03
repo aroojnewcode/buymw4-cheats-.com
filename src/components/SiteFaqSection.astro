@@ -22,6 +22,7 @@ interface Props {
   subtitle?: string;
   /** Skip duplicate section header (e.g. /faq/ hero already has the h1). */
   hideHeader?: boolean;
+  headingAs?: 'h1' | 'h2' | 'h3';
 }
 
 const {
@@ -35,6 +36,7 @@ const {
   title: titleProp,
   subtitle: subtitleProp,
   hideHeader = false,
+  headingAs = 'h1',
 } = Astro.props;
 
 const copy = variant === 'full' ? SITE_FAQ_SECTION_COPY : CONTEXTUAL_FAQ_SECTION_COPY;
@@ -51,6 +53,7 @@ const showFilters = filterTopics.length > 1;
   subtitle={subtitleProp ?? copy.subtitle}
   titleId={titleId}
   hideHeader={hideHeader}
+  headingAs={headingAs}
   showFilters={showFilters}
   filterTopics={filterTopics}
   class={className}

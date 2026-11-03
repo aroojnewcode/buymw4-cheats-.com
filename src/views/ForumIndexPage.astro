@@ -32,7 +32,7 @@ const shell = getForumShell(locale);
 const localizedPosts = forumPosts.map((post) => localizeForumPost(locale, post));
 const forumPath = L('/forum/');
 const breadcrumbs = [
-  { name: 'Home', path: L('/') },
+  { name: 'Site index', path: L('/') },
   { name: t.nav.find((n) => n.href === '/forum/')?.label ?? 'Forum', path: forumPath },
 ];
 const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -165,10 +165,10 @@ const localizeHref = (href?: string) => {
                     <div class="forum-post-actions">
                       {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount}
+                        <Icon name="messageCircle" size={15} /> {post.commentsCount} {shell.commentsCount} — {post.title}
                       </a>
                       <a href={forumPostPath(post.slug, locale)}>
-                        <Icon name="arrowRight" size={15} /> {shell.readDiscussion}
+                        <Icon name="arrowRight" size={15} /> Open thread: {post.title}
                       </a>
                     </div>
                   </div>
@@ -194,7 +194,7 @@ const localizeHref = (href?: string) => {
                   <img
                     src={BRAND_ICON}
                     srcset={`${BRAND_ICON} 1x, ${BRAND_ICON_2X} 2x`}
-                    alt=""
+                    alt="Forum – favicon"
                     width={34}
                     height={34}
                   />

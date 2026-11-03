@@ -68,8 +68,9 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>{meta.nativeName}</span>
-            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
+            <span>
+              {compact ? `Mobile: ${meta.nativeName} (${meta.code.toUpperCase()})` : `Desktop: ${meta.nativeName} (${meta.code.toUpperCase()})`}
+            </span>
           </a>
         );
       })
@@ -96,8 +97,9 @@ const secondary = LOCALES.filter((code) => !LOCALE_META[code].priority);
             ]}
             data-lang-option={code}
           >
-            <span>{meta.nativeName}</span>
-            <span class="text-[0.7rem] text-muted-foreground">{meta.englishName}</span>
+            <span>
+              {compact ? `Mobile: ${meta.nativeName} (${meta.code.toUpperCase()})` : `Desktop: ${meta.nativeName} (${meta.code.toUpperCase()})`}
+            </span>
           </a>
         );
       })
