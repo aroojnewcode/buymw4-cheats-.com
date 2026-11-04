@@ -295,7 +295,7 @@ export const ko: DeepPartialTranslations = {
     title: 'Modern Warfare Cheats 지원',
     subtitle: '로더, HWID, 결제, 계정 도움.',
     channels: [
-      { icon: 'users', title: '구매 전', desc: '티어·포함 기능을 문의하세요.', linkLabel: '결제 시작', href: '/go/mw4/' },
+      { icon: 'users', title: '구매 전', desc: '티어·포함 기능을 문의하세요.', linkLabel: '결제 시작', href: PRIMARY_CHECKOUT_PATH },
       { icon: 'headphones', title: '이메일', desc: '로더 오류, HWID, 계정 이슈.', linkLabel: 'support@buymw4cheats.com', href: 'mailto:support@buymw4cheats.com' },
       { icon: 'navFaq', title: 'FAQ', desc: '호환성·밴·설치 답변.', linkLabel: 'FAQ 보기', href: '/faq/' },
       { icon: 'clock', title: '디스코드', desc: '24시간 지원.', linkLabel: '고객지원 페이지', href: '/support/' },

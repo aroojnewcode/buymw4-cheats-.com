@@ -34,7 +34,7 @@ const SKIP_FILES = new Set([
 ]);
 
 const ZADEYO_MW4 =
-  'https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Fmw4';
+  'https://zadeyo.com/go/UROOJ?to=%2Fproducts%2Fmw4';
 
 /** Ordered longest-first replacements (current repo = Aion 2 branded). */
 const REPLACEMENTS = [

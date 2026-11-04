@@ -299,9 +299,24 @@ html.dark #why-us .why-compare-other-card :hover .icon-app {
 }
 
 @media (min-width: 1024px) {
+  .site-header-bar {
+    position: relative;
+  }
+
+  /* True bar center; nudge left so nav sits between logo and actions visually */
   .site-header-nav {
-    grid-column: 2;
-    justify-self: center;
+    position: absolute;
+    left: 50%;
+    z-index: 0;
+    grid-column: unset;
+    transform: translateX(calc(-50% - 0.625rem));
+    pointer-events: auto;
+  }
+
+  .site-header-brand,
+  .site-header-end {
+    position: relative;
+    z-index: 1;
   }
 
   .site-header-end {

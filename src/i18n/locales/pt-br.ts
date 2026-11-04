@@ -295,7 +295,7 @@ export const ptBr: DeepPartialTranslations = {
     title: 'Suporte Modern Warfare Cheats',
     subtitle: 'Ajuda com loader, HWID, pagamento e conta.',
     channels: [
-      { icon: 'users', title: 'Antes de comprar', desc: 'Pergunte sobre planos e recursos incluídos.', linkLabel: 'Ir ao checkout', href: '/go/mw4/' },
+      { icon: 'users', title: 'Antes de comprar', desc: 'Pergunte sobre planos e recursos incluídos.', linkLabel: 'Ir ao checkout', href: PRIMARY_CHECKOUT_PATH },
       { icon: 'headphones', title: 'E-mail', desc: 'Erros do loader, HWID e problemas de conta.', linkLabel: 'support@buymw4cheats.com', href: 'mailto:support@buymw4cheats.com' },
       { icon: 'navFaq', title: 'FAQ', desc: 'Respostas sobre compatibilidade, bans e instalação.', linkLabel: 'Ler FAQ', href: '/faq/' },
       { icon: 'clock', title: 'Discord', desc: 'Suporte 24 horas.', linkLabel: 'Página de suporte', href: '/support/' },

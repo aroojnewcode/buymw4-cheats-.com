@@ -1,5 +1,5 @@
 const ZADEYO_MW4_CHECKOUT =
-  'https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Fmw4';
+  'https://zadeyo.com/go/UROOJ?to=%2Fproducts%2Fmw4';
 
 export { ZADEYO_MW4_CHECKOUT };
 

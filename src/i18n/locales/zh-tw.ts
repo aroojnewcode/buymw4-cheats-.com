@@ -295,7 +295,7 @@ export const zhTw: DeepPartialTranslations = {
     title: 'Modern Warfare Cheats 客服',
     subtitle: '載入器、HWID、付款與帳號協助。',
     channels: [
-      { icon: 'users', title: '購買前', desc: '詢問方案與包含的功能。', linkLabel: '前往結帳', href: '/go/mw4/' },
+      { icon: 'users', title: '購買前', desc: '詢問方案與包含的功能。', linkLabel: '前往結帳', href: PRIMARY_CHECKOUT_PATH },
       { icon: 'headphones', title: '電子郵件', desc: '載入器錯誤、HWID、帳號問題。', linkLabel: 'support@buymw4cheats.com', href: 'mailto:support@buymw4cheats.com' },
       { icon: 'navFaq', title: '常見問題', desc: '相容性、封鎖與安裝解答。', linkLabel: '閱讀常見問題', href: '/faq/' },
       { icon: 'clock', title: 'Discord', desc: '24 小時支援。', linkLabel: '客服頁面', href: '/support/' },

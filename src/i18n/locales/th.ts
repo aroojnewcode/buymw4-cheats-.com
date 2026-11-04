@@ -295,7 +295,7 @@ export const th: DeepPartialTranslations = {
     title: 'ซัพพอร์ต Modern Warfare Cheats',
     subtitle: 'ช่วยเรื่องโหลดเดอร์ HWID การชำระเงิน และบัญชี',
     channels: [
-      { icon: 'users', title: 'ก่อนซื้อ', desc: 'สอบถามแพ็กเกจและฟีเจอร์ที่รวมอยู่', linkLabel: 'ไปหน้าชำระเงิน', href: '/go/mw4/' },
+      { icon: 'users', title: 'ก่อนซื้อ', desc: 'สอบถามแพ็กเกจและฟีเจอร์ที่รวมอยู่', linkLabel: 'ไปหน้าชำระเงิน', href: PRIMARY_CHECKOUT_PATH },
       { icon: 'headphones', title: 'อีเมล', desc: 'ข้อผิดพลาดโหลดเดอร์ HWID และปัญหาบัญชี', linkLabel: 'support@buymw4cheats.com', href: 'mailto:support@buymw4cheats.com' },
       { icon: 'navFaq', title: 'FAQ', desc: 'คำตอบเรื่องความเข้ากันได้ การแบน และการติดตั้ง', linkLabel: 'อ่าน FAQ', href: '/faq/' },
       { icon: 'clock', title: 'Discord', desc: 'ซัพพอร์ต 24 ชั่วโมง', linkLabel: 'หน้าซัพพอร์ต', href: '/support/' },
