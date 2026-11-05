@@ -39,15 +39,17 @@ const navIconsByHref: Record<string, IconName> = {
 };
 
 const purchaseUrl = checkoutPath('mw4');
-const nav = t.nav.map((link) => {
-  const bareHref = link.href;
-  return {
-    ...link,
-    bareHref,
-    href: localizePath(locale, bareHref),
-    icon: (navIconsByHref[bareHref] ?? 'navFeatures') as IconName,
-  };
-});
+const nav = t.nav
+  .filter((link) => link.href !== '/' && link.href !== '')
+  .map((link) => {
+    const bareHref = link.href;
+    return {
+      ...link,
+      bareHref,
+      href: localizePath(locale, bareHref),
+      icon: (navIconsByHref[bareHref] ?? 'navFeatures') as IconName,
+    };
+  });
 ---
 
 <header class="pointer-events-none fixed inset-x-0 top-0 z-50">

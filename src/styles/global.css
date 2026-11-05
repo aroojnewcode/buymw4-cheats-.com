@@ -303,13 +303,13 @@ html.dark #why-us .why-compare-other-card :hover .icon-app {
     position: relative;
   }
 
-  /* True bar center; nudge left so nav sits between logo and actions visually */
+  /* Center nav on the header bar (logo + actions stay in grid columns). */
   .site-header-nav {
     position: absolute;
     left: 50%;
     z-index: 0;
     grid-column: unset;
-    transform: translateX(calc(-50% - 0.625rem));
+    transform: translateX(-50%);
     pointer-events: auto;
   }
 
