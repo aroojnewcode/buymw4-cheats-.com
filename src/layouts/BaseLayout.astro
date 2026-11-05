@@ -23,6 +23,7 @@ import {
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
+import SeoShareLinks from '../components/SeoShareLinks.astro';
 
 interface Props {
   title?: string;
@@ -180,6 +181,7 @@ const xDefault = canonicalUrl(localizePath('en', barePath));
       <slot />
     </main>
     <Footer locale={locale} />
+    <SeoShareLinks url={localizePath(locale, barePath)} title={title} />
     <script>
       import '../scripts/site.ts';
     </script>

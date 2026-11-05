@@ -39,7 +39,7 @@ if (!post) {
 
 const postPath = blogPostPath(post.slug, locale);
 const breadcrumbs = [
-  { name: 'Site index', path: localizePath(locale, '/') },
+  { name: 'Home', path: localizePath(locale, '/') },
   { name: t.blog.eyebrow, path: localizePath(locale, '/blog/') },
   { name: post.title, path: postPath },
 ];

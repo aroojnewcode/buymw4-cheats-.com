@@ -7,7 +7,7 @@ export const blogPosts: BlogPostFull[] = [
     title: "Modern Warfare Private match guide: skill drills before Ranked",
     slug: "mw4-multiplayer-guide",
     image: cheatScreenshotSrcForSlug('mw4-multiplayer-guide'),
-    desc: "Use Training and private lobbies to practice aim smoothness, ESP ranges and loadouts before Ranked.",
+    desc: "Guide: Use Training and private lobbies to practice aim smoothness, ESP ranges and loadouts before Ranked on PC.",
     date: "Aug 20, 2026",
     readTime: "16 min read",
     body: [
@@ -48,7 +48,7 @@ export const blogPosts: BlogPostFull[] = [
     title: "Modern Warfare Training tips for aimbot and ESP practice",
     slug: "mw4-multiplayer-tips",
     image: cheatScreenshotSrcForSlug('mw4-multiplayer-tips'),
-    desc: "Training and private-lobby workflows to tune aimbot, ESP wallhack and loot ESP before Ranked.",
+    desc: "Training and private-lobby workflows to tune aimbot, ESP wallhack and loot ESP before Ranked. Safe drills for PC operators.",
     date: "Aug 19, 2026",
     readTime: "14 min read",
     body: [
@@ -145,7 +145,7 @@ export const blogPosts: BlogPostFull[] = [
     title: "Modern Warfare cheats features: aimbot, bots, ESP wallhack and more",
     slug: "mw4-cheats-features-guide",
     image: cheatScreenshotSrcForSlug('mw4-cheats-features-guide'),
-    desc: "Complete guide to our modern warfare cheats—Aimbot, Loot Assist, Loadout Changer, Radar Hack, ESP Wallhack and Auto plate break.",
+    desc: "Cheats Features: Complete guide to aimbot, Loot Assist, Loadout Changer, Radar Hack, ESP Wallhack and Auto plate break.",
     date: "Aug 18, 2026",
     readTime: "20 min read",
     featured: true,

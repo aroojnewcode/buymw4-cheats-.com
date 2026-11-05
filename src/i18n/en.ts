@@ -625,26 +625,29 @@ export const en: Translations = {
     about: {
       title: 'About Modern Warfare Cheats',
       description:
-        'Modern Warfare Cheats sells Modern Warfare cheat tiers, utilities and guides at buymw4cheats.com.',
+        'Modern Warfare Cheats sells PC cheat tiers, setup guides and utilities at buymw4cheats.com. Patch-ready loaders and Discord support for MW4 operators.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'Modern Warfare Cheats is a PC site for Modern Warfare ESP, wallhack, Minimap radar, weapon aimbot and Loadout Changer products. We post tier comparisons, setup guides and live status notes.',
-            'Game and product names are for identification only.',
+            'We run buymw4cheats.com for PC players who want ESP, wallhack, minimap radar, weapon aimbot and Loadout Changer tools with clear setup docs.',
+            'Our team publishes tier comparisons, loader guides and live status notes after Activision patches.',
+            'Game and product names are for identification only; we are not affiliated with the publisher.',
           ],
         },
         {
           heading: 'What we sell',
           paragraphs: [
-            'Lite, Pro and Elite Modern Warfare cheats, plus HWID Spoofer, Loadout Changer and UGC recovery. The blog covers configs, patch checks and Ricochet updates.',
-            'Pages are updated when Modern Warfare or the loader changes. Check the homepage status banner and Discord #status before you play.',
+            'Lite, Pro and Elite tiers cover Ranked overlays, plus HWID Spoofer, Loadout Changer and UGC recovery utilities.',
+            'The blog documents configs, Ricochet patch checks and loader updates—read before you queue on patch day.',
+            'Product pages and the homepage status banner show whether builds are online; Discord #status mirrors major outages.',
           ],
         },
         {
           heading: 'Support',
           paragraphs: [
-            'Use Discord or email for loader errors, compatibility and checkout questions. Include your order email, Activision account and Windows version.',
+            'Use Discord or email for loader errors, HWID resets, compatibility and checkout questions.',
+            'Include your order email, Activision account tag and Windows version so support can reproduce the issue quickly.',
           ],
         },
       ],

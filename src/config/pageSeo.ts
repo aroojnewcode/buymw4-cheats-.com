@@ -13,9 +13,9 @@ export interface PageSeoEntry {
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Buy MW4 Cheats | ESP, Aimbot & Radar — buymw4cheats.com',
-    h1: 'Buy MW4 Cheats — ESP, Aimbot & Radar',
+    h1: 'Buy MW4 Cheats — ESP, Aimbot & Radar · buymw4cheats.com',
     description:
-      'Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer. Built for Multiplayer, Warzone and Ranked Play.',
+      'Mw4 Cheats: Modern Warfare cheats for PC with player ESP, wallhack, minimap radar, loot ESP, aimbot and loadout changer.',
   },
   '/products/mw4-cheats/': {
     title: 'MW4 Hacks | Compare Lite, Pro & Elite Tiers',
@@ -36,10 +36,10 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'HWID Spoofer after hardware bans, UGC for Activision and Ricochet appeals, and local Loadout Changer / Unlock All tool.',
   },
   '/blog/': {
-    title: 'Modern Warfare Guides & Ricochet Patch Notes',
-    h1: 'Modern Warfare Guides & Patch Notes',
+    title: 'Patch – Guides on Modern Warfare ESP | buymw4cheats.com',
+    h1: 'Patch Guides, Ricochet Notes & MW4 Articles',
     description:
-      'Guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks.',
+      'Patch guides on Modern Warfare ESP wallhack, Ranked presets, Lite vs Pro, weapon aimbot and Ricochet patch-day checks for PC operators.',
   },
   '/forum/': {
     title: 'MW4 Hacks Community Forum',
@@ -66,10 +66,10 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'How buymw4cheats.com uses analytics, cookies and contact data.',
   },
   '/about/': {
-    title: 'About Modern Warfare Cheats',
+    title: 'Modern Warfare Cheats – guides and utilities at buymw4cheats',
     h1: 'About Modern Warfare Cheats',
     description:
-      'Modern Warfare Cheats sells PC Modern Warfare cheat tiers, guides and utilities at buymw4cheats.com.',
+      'Modern Warfare Cheats sells PC cheat tiers, setup guides and utilities at buymw4cheats.com. Patch-ready loaders and Discord support for MW4 operators.',
   },
   '/support/': {
     title: 'Buy MW4 Cheats — Support & Loader Help',

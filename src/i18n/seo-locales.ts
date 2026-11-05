@@ -131,9 +131,10 @@ export const PAGE_SEO_BY_LOCALE: Record<
 
   de: {
     '/': {
-      title: 'Modern Warfare Cheats — ESP, Radar & Ranked-PvP-Overlay für PC',
+      title: 'Modern Warfare – ESP, Radar & Ranked-PvP-Overlay für PC',
       description:
-        'Modern Warfare Cheats für den PC: Spieler-ESP, Wallhack, Ranked-Radar, Loot-ESP, klassenbasierte Skill-Hilfe und Kostüm-Changer. Für PvP, Warzone und Zombieskämpfe, schnell nach Patches.',
+        'Modern Warfare Cheats für den PC: Spieler-ESP, Wallhack, Ranked-Radar, Loot-ESP, klassenbasierte Skill-Hilfe und Kostüm-Changer.',
+      h1: 'Modern Warfare Cheats — ESP, Aimbot & Radar · buymw4cheats.com',
     },
     [P]: {
       title: 'Modern Warfare Cheat-Produkte — Elite, HWID-Spoofer, UGC, Kostüme',
